@@ -1,0 +1,478 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"requi",
+				"requireDirectory"
+			],
+			[
+				"get",
+				"getPosition"
+			],
+			[
+				"self",
+				"self"
+			],
+			[
+				"sold",
+				"soldierpics"
+			],
+			[
+				"s",
+				"s"
+			],
+			[
+				"b",
+				"b"
+			],
+			[
+				"paused",
+				"pausedscreen"
+			],
+			[
+				"rect",
+				"rectangle"
+			],
+			[
+				"height",
+				"height"
+			],
+			[
+				"actual",
+				"actualheight"
+			],
+			[
+				"max",
+				"maxwateragility-player"
+			],
+			[
+				"description",
+				"descriptionfont"
+			],
+			[
+				"desc",
+				"descriptionfont"
+			],
+			[
+				"upgrad",
+				"upgradescreen"
+			],
+			[
+				"else",
+				"else"
+			],
+			[
+				"scre",
+				"screenWidth"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Linux Love2d 9.0",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 554.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/grant/scm/AdventuresEC2/Adventures/game/Enemies/wizard.lua",
+		"/home/grant/scm/AdventuresEC2/Adventures/Adventures Project.sublime-project",
+		"/C/Users/Grant/scm/AdventuresKiln/Adventures/Adventures Project.sublime-project",
+		"/home/grant/scm/AdventuresKiln/Adventures/game/upgrade.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/utilities/tableUtilities.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/game/save.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/game/enemies.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/game/level.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/game/states.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/display functions.lua~",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/display/colors.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/level.lua~",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/states.lua~",
+		"/home/grant/scm/AdventuresKiln/Adventures/game/Enemies/monkey.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/game/shop.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/main.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/display/loveGraphicsOverride.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/LevelEditor/main.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/display/tabbedDisplay.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/game/Enemies/wizard.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/LevelEditor/lib/enemies.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/explosion.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/utilities/tablefunctions.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/display/button.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/display/slider.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/display/boolBox.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/display/drawBlur.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/display/love.graphicsOverride.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/display/tileDraw.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/display/display functions.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/upgrade.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/display functions.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/pageDisplay.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/paused.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/shop.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/lib/tabbedDisplay.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/Adventures Project.sublime-project",
+		"/C/Users/Grant/scm/Adventures/Adventures/lib/hud.lua",
+		"/C/Users/Grant/scm/Adventures/Adventures/lib/states.lua",
+		"/C/Users/Grant/scm/Adventures/Adventures/LevelEditor/lib/editor.lua",
+		"/C/Users/Grant/scm/Adventures/Adventures/lib/player.lua",
+		"/C/Users/Grant/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/Grant/scm/Adventures/Adventures/Adventures Project.sublime-project",
+		"/home/grant/Adventures Workspace/Adventures/Adventures Project.sublime-project",
+		"/home/grant/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/grant/Adventures Workspace/Adventures/Adventures Project.sublime-workspace",
+		"/C/Users/Grant/Desktop/Love/Adventures/lib/Enemies/pawn.lua",
+		"/C/Users/Grant/Desktop/Love/Adventures/lib/enemies.lua",
+		"/C/Users/Grant/Desktop/Love/Adventures/main.lua",
+		"/C/Users/Grant/Desktop/Love/Adventures/lib/states.lua",
+		"/C/Users/Grant/Desktop/Love/Adventures/lib/player.lua",
+		"/C/Users/Grant/Desktop/Love/Adventures/lib/Enemies/soldier.lua",
+		"/C/Users/Grant/Desktop/Love/Adventures/Adventures Project.sublime-project",
+		"/C/Users/Grant/Desktop/Love/Adventures/lib/camera.lua",
+		"/C/Users/Grant/Desktop/Love/Adventures/lib/pawn.lua",
+		"/C/Users/Grant/Desktop/Love/Adventures/lib/soldier.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/display functions.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/background.lua",
+		"/C/Users/Grant/Desktop/Adventures/conf.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/misc resources.lua",
+		"/C/Users/Grant/Desktop/Adventures/main.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/enemydrop.lua",
+		"/C/Users/Grant/Desktop/C++ Game/main.cpp",
+		"/C/Program Files/Sublime Text 2/Pristine Packages/C++.sublime-package",
+		"/C/Users/Grant/Desktop/Adventures/lib/states.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/hud.lua",
+		"/C/Users/Grant/Desktop/Adventures/Adventures Project.sublime-workspace",
+		"/C/Users/Grant/Desktop/Adventures/Adventures Project.sublime-project",
+		"/C/Users/Grant/Desktop/Adventures/lib/enemies.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/player.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/level.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/New Tables.lua",
+		"/C/Users/Grant/Desktop/Adventures/Levels/Birthing Place.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/math.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/camera.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/collision.lua",
+		"/C/Users/Grant/Desktop/Adventures/Levels/Enemy Test.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/pawn.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/physics.lua",
+		"/C/Users/Grant/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Program Files/Sublime Text 2/Pristine Packages/Lua.sublime-package",
+		"/C/Program Files/Sublime Text 2/Pristine Packages/User.sublime-package",
+		"/C/Users/Grant/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Grant/Desktop/Adventures/lib/background.lua~",
+		"/C/Users/Grant/Desktop/Adventures/lib/upgrade.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/soldier.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/save.lua",
+		"/C/Users/Grant/Desktop/Adventures/Levels/Birthing Place Shop.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/animation.lua",
+		"/C/Users/Grant/AppData/Roaming/LOVE/Adventures Saves/Save one/Levels/Birthing Place.lua",
+		"/C/Users/Grant/Desktop/Adventures/Levels/Second Place.lua",
+		"/C/Users/Grant/AppData/Roaming/LOVE/Adventures Saves/Save one/file one header.lua",
+		"/C/Users/Grant/AppData/Roaming/LOVE/Adventures Saves/enemies.lua",
+		"/C/Users/Grant/AppData/Roaming/LOVE/Adventures Saves/Save one/file one level.lua",
+		"/C/Users/Grant/AppData/Roaming/LOVE/Adventures Saves/Save one/file onelevel.lua",
+		"/C/Users/Grant/AppData/Roaming/LOVE/Adventures Saves/file one level.txt",
+		"/C/Users/Grant/Desktop/Adventures - small/lib/enemies.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/paused.lua",
+		"/C/Users/Grant/AppData/Roaming/Sublime Text 2/Packages/User/Lua.sublime-settings",
+		"/C/Users/Grant/Desktop/Adventures/lib/paused",
+		"/C/Users/Grant/Desktop/Adventures/Levels/Birthing Place.txt",
+		"/C/Users/Grant/Videos/darth.ps",
+		"/C/Users/Grant/Desktop/Adventures/george.lua",
+		"/C/Users/Grant/AppData/Roaming/Sublime Text 2/Packages/User/Adventures Project.sublime-project",
+		"/C/Users/Grant/AppData/Roaming/Sublime Text 2/Packages/User/LOVE2D Build.sublime-build",
+		"/C/Users/Grant/Desktop/Torque/main.lua",
+		"/C/Program Files (x86)/LOVE/love.exe",
+		"/C/Users/Grant/AppData/Roaming/Sublime Text 2/Packages/Lua/for-k-v-in-pairs().sublime-snippet",
+		"/C/Users/Grant/AppData/Roaming/Sublime Text 2/Packages/User/Distraction Free.sublime-settings",
+		"/C/Users/Grant/Desktop/Basic LOVE2D/main.lua",
+		"/C/Users/Grant/Desktop/Gamel/main.lua"
+	],
+	"find":
+	{
+		"height": 43.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/home/grant/scm/AdventuresKiln/Adventures",
+			"C:\\Users\\Grant\\scm\\Adventures\\Adventures",
+			"C:\\Users\\Grant\\Desktop\\Love\\Adventures",
+			"C:\\Users\\Grant\\Desktop\\Adventures",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"tiledraw",
+			"getPulsingColors",
+			"getpulsingcolors",
+			"love.filesystem.load",
+			"love.graphics.rectangle",
+			"require",
+			"upgradescreen.make",
+			"hud.mousepressed",
+			"f5",
+			"ctrl+b",
+			"ctrl-b",
+			"f5",
+			"ctrl+b",
+			"folder",
+			"folders",
+			"ipairs",
+			"pairs",
+			"ipairs",
+			"print",
+			"rint",
+			"function love.graphics.",
+			"function love.graphics.rectangle(",
+			"rectangle",
+			")\n",
+			"love.graphics.setColorMode(",
+			"love.graphics.setColorMode",
+			"\n	",
+			"love.graphics.setColorMode(",
+			"\n					",
+			"love.graphics.setColorMode(",
+			"setCaption",
+			"love.timer.getMicroTime()",
+			"micro",
+			"love.timer.getMicroTime()",
+			"author",
+			"               ",
+			"rotatedrectangle",
+			"rectangle",
+			"function love.graphics.rectangle",
+			"drawBlur.circle",
+			"playerarrow",
+			"heart",
+			"full heart",
+			"')\n",
+			"cow",
+			"camera",
+			",['",
+			"{{['",
+			"offset",
+			"camera",
+			"love.keypressed",
+			"lovefunctions",
+			"newRectangle",
+			"math.get",
+			"player.ygravity",
+			"player.ygrav",
+			"v",
+			"paused",
+			"collision.direction.rectangles",
+			"soldier",
+			"updateObject",
+			"groundy",
+			"yposition",
+			"xposition",
+			"yposition",
+			"xposition",
+			"yposition",
+			"xposition",
+			"yposition",
+			"xposition",
+			"squashed",
+			" \n",
+			"w",
+			"selectedfile",
+			"savefile",
+			"level.",
+			"level.startx",
+			".speed",
+			"v.",
+			"pawn.",
+			"self",
+			"groundy",
+			"v.",
+			"levely",
+			"enemyonscreen",
+			"foe.pic",
+			"v.",
+			"player.xp",
+			"xp",
+			"actualproportion",
+			"p.",
+			"pawn",
+			"actualproportion",
+			"pawn.drawwidth",
+			"	\n",
+			"})\n",
+			"player.hurttext",
+			"	\n",
+			"255",
+			"])/",
+			"3",
+			"player.upgradepoints",
+			"gold",
+			"print(",
+			" print(",
+			"print",
+			"grassydirt",
+			"stonebrick",
+			"door",
+			"level.stuff",
+			"watercolor",
+			"player.inlevel",
+			"player.door",
+			"\")\n",
+			"player.inwater",
+			"\"w\"",
+			"'w'",
+			"levelup",
+			"levelupxps = ",
+			"levelup",
+			"player.actual",
+			"inwater",
+			"gravity",
+			"wateragility",
+			"player.inwaterheight",
+			"player x",
+			"info",
+			"getWorldScreenRect"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"colors.getPulsingColors",
+			"love.timer.getTime()",
+			"self",
+			"y",
+			"x",
+			"y",
+			"x",
+			"y",
+			"x",
+			"y",
+			"x",
+			".xspeed",
+			"self.",
+			"v",
+			"self.",
+			"soldierpics.",
+			"soldierpics",
+			"soldierpics.",
+			"soldierpics",
+			"soldierpics.",
+			"self.",
+			"s.",
+			"soldier",
+			"stonebrick",
+			"left",
+			"box"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 204.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"Adventures/lib/camera.lua"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 878.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/C/Users/Grant/AppData/Roaming/Sublime Text 2/Packages/User/Adventures Project.sublime-project"
+			]
+		],
+		"width": 1378.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 187.0,
+	"status_bar_visible": true
+}
