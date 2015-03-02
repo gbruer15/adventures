@@ -71,6 +71,22 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "bone.lua",
+			"settings":
+			{
+				"buffer_size": 15404,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "main.lua",
+			"settings":
+			{
+				"buffer_size": 8528,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "Linux Love2d 9.0",
 	"command_palette":
@@ -96,6 +112,7 @@
 	},
 	"file_history":
 	[
+		"/home/grant/scm/AdventuresEC2/Bones Walking/bonesWalking.sublime-project",
 		"/home/grant/scm/AdventuresEC2/Adventures/game/Enemies/wizard.lua",
 		"/home/grant/scm/AdventuresEC2/Adventures/Adventures Project.sublime-project",
 		"/C/Users/Grant/scm/AdventuresKiln/Adventures/Adventures Project.sublime-project",
@@ -400,8 +417,62 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "bone.lua",
+					"settings":
+					{
+						"buffer_size": 15404,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12354,
+								12354
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 7182.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "main.lua",
+					"settings":
+					{
+						"buffer_size": 8528,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6280,
+								6280
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2565.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
