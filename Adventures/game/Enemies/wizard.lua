@@ -1,5 +1,5 @@
 
-require("iceMissile")
+require("game/Enemies/iceMissile")
 enemy.wizard = {}
 enemy.wizard.__index = enemy.wizard
 enemy.wizard.type = "wizard"

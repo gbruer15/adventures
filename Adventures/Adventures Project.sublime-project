@@ -12,7 +12,7 @@
 		{
 			"cmd":
 			[
-				"C:\\Program Files\\LOVE9\\love.exe",
+				"love",
 				"$project_path"
 			],
 			"shell": true,
