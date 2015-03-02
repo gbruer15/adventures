@@ -16,7 +16,7 @@ function enemy.wizard.make(atts)
 
 	s.crazymove = atts.crazymove or false
 	setmetatable(s,enemy.wizard)
-	s.metatable = 'enemy.wizard'
+	s.metatable = 'enemy wizard'
 	s.type = 'wizard'
 	s.timeCount = 0
 	if s.xspeed > 0 then
