@@ -220,6 +220,61 @@ function playerfunctions.make(name)
 	player.wateragility = 1
 	player.maxwateragility = 50
 
+
+	player.bones = {}
+	
+	player.bones.headBone = bone.make{id='head',startPoint={225,170},endPoint={225,130},adamp=3,lowerConstraint=-math.pi*0.75,upperConstraint=-math.pi*0.25}
+	player.bones.backarmBone = bone.make{id='backarm',startPoint={220,202}, aspeed=0,length=82,absAngle=70.3*math.pi/180,adamp=2.5,upperConstraint=math.pi*0.75,lowerConstraint=-math.pi/2}
+	player.bones.forearmBone = bone.make{id='forearm',parent=player.bones.backarmBone, aspeed=0,length=94,relAngle=-30*math.pi/180,adamp=2.5,lowerConstraint=-math.pi*0.7,upperConstraint=-15*math.pi/180}
+	---89.3*math.pi/180
+	player.bones.fistBone = bone.make{id='fist',parent=player.bones.forearmBone, aspeed=0,length=12,relAngle=0,adamp=2.5,upperConstraint=20/180*math.pi,lowerConstraint=-30/180*math.pi}
+	player.bones.backbackarmBone=bone.make{id='backba',startPoint={230,196},aspeed=0,length=82,absAngle=-10.3*math.pi/180,adamp=1.5,upperConstraint=math.pi*0.75,lowerConstraint=-math.pi/2}
+	player.bones.backforearmBone=bone.make{id='backfa',parent=player.bones.backbackarmBone,aspeed=0,length=94,relAngle=-15*math.pi/180,adamp=1.5, lowerConstraint=-math.pi*0.7,upperConstraint=-15*math.pi/180}
+	
+	player.bones.swordBone = bone.make{id='sword',parent=player.bones.fistBone, length=100, relAngle=-math.pi/2,adamp=4}
+	player.bones.wheelAttachmentBone = bone.make{id='wheelattach',startPoint={225,342},length=120,absAngle=math.pi/2}
+	player.bones.wheelBone = bone.make{id='wheel',parent=player.bones.wheelAttachmentBone,length=67,relAngle=-math.pi/2,adamp=10}
+	
+	player.bones.spineBone = bone.make{id='spine',startPoint={225,492},length=259,absAngle=-math.pi/2,adamp=4, children={player.bones.backarmBone,player.bones.backbackarmBone,player.bones.headBone}, noConnection=true,lowerConstraint=-math.pi/2-20/180*math.pi,upperConstraint=-math.pi/2+30/180*math.pi}
+	
+	player.bonePics = {}
+	player.bonePics.torsoPic = bonePicture.make(love.graphics.newImage('Art/PlayerParts/torso.png'),{relPivotPoint={54,326},bonePicAngle=math.pi/2, bone=player.bones.spineBone})
+	
+	player.bonePics.fistPic = bonePicture.make(love.graphics.newImage('Art/PlayerParts/fist.png'),{relPivotPoint={15,8}, bonePicAngle=-52*math.pi/180, bone=player.bones.fistBone})
+	
+	player.bonePics.headPic = bonePicture.make(love.graphics.newImage('Art/PlayerParts/head.png'),{relPivotPoint={70,184},bonePicAngle=math.pi/2,bone=player.bones.headBone})
+	player.bonePics.forearmPic = bonePicture.make(love.graphics.newImage('Art/PlayerParts/forearm.png'),{relPivotPoint={20,13},bonePicAngle=-61.8/180*math.pi,bone=player.bones.forearmBone})
+	player.bonePics.backarmPic = bonePicture.make(love.graphics.newImage('Art/PlayerParts/backarm.png'),{relPivotPoint={20,15},bonePicAngle=-88/180*math.pi,bone=player.bones.backarmBone})
+	
+	player.bonePics.backforearmPic = bonePicture.make(love.graphics.newImage('Art/PlayerParts/back forearm.png'),{relPivotPoint={20,13},bonePicAngle=-61.8/180*math.pi,bone=player.bones.backforearmBone,color={160,160,160}})
+	
+	player.bonePics.backbackarmPic = bonePicture.make(love.graphics.newImage('Art/PlayerParts/back backarm.png'),{relPivotPoint={20,15},bonePicAngle=-88/180*math.pi,bone=player.bones.backbackarmBone,color={160,160,160}})
+	
+	player.bonePics.swordPic = bonePicture.make(love.graphics.newImage('Art/PlayerParts/sword.png'),{relPivotPoint={100,494},bonePicAngle=math.pi/2,bone=player.bones.swordBone,drawheight=200,scale=true})
+	
+	player.bonePics.wheelPic = bonePicture.make(love.graphics.newImage('Art/PlayerParts/wheel.png'),{relPivotPoint={67,67}, bone=player.bones.wheelBone})
+	
+	
+	player.body = body.make{loneBones={player.bones.wheelAttachmentBone}
+																	,bonePics={
+																		backbackarmPic
+																		,player.bonePics.backforearmPic
+																		,player.bonePics.torsoPic
+																		,player.bonePics.wheelPic
+																		,player.bonePics.headPic
+																		,player.bonePics.swordPic
+																		,player.bonePics.backarmPic
+																		,player.bonePics.forearmPic
+																		,player.bonePics.fistPic
+																	}
+																	,x=225
+																	,y=320
+																	,adamp=1
+																	,airdamping=1}
+	player.body:setScale(38/45,119/140)
+	
+
+
 	player.mouthx = 36 * player.drawwidth/playerimages.picwidth
 
 	player.mouthy = 162 * player.drawheight/playerimages.picheight

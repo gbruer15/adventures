@@ -13,8 +13,9 @@ function savegame(savefile)
 	end
 	local basename = "Save " .. savefile .. "/file " .. savefile .. " "
 
+	local ignoredKeys = {'bones', 'bonePics', 'body'}
 
-	love.filesystem.write(basename .. 'player.lua', 'return ' .. tableUtilities.tabletostring(player,true))
+	love.filesystem.write(basename .. 'player.lua', 'return ' .. tableUtilities.tabletostring(player,true,ignoredKeys))
 
 	local head = {}
 	for i,v in ipairs(headerkeys) do
