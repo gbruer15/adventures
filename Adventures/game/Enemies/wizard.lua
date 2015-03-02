@@ -5,7 +5,6 @@ enemy.wizard.__index = enemy.wizard
 enemy.wizard.type = "wizard"
 
 function enemy.wizard.load()
-	--Wizard
 	wizardpics = {left = love.graphics.newImage("Art/Enemy Pics/Wizard/facing left.png"),right = love.graphics.newImage("Art/Enemy Pics/Wizard/facing right.png")}
 	wizardpics.width = wizardpics.left:getWidth()
 	wizardpics.height = wizardpics.left:getHeight()
