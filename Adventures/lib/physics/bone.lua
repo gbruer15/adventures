@@ -395,7 +395,6 @@ function body:draw(drawBone,drawStructure)
 	for i,b in ipairs(self.bonePics) do
 		b:draw(drawBone,drawStructure)
 	end
-	
 end
 function bone:scaleChildren(xscale,yscale,cx,cy)
 	local cx,cy = cx or self.startPoint[1], cy or self.startPoint[2]

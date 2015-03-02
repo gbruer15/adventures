@@ -122,6 +122,9 @@ function playerfunctions.load()
 		player = playerfunctions.make(name)
 				
 	end
+
+	playerfunctions.makeBody()
+
 	if selectedfile == 'one' then
 		player.color = {254,63,3}
 	elseif selectedfile == 'two' then
@@ -220,9 +223,29 @@ function playerfunctions.make(name)
 	player.wateragility = 1
 	player.maxwateragility = 50
 
+	player.mouthx = 36 * player.drawwidth/playerimages.picwidth
 
-	player.bones = {}
+	player.mouthy = 162 * player.drawheight/playerimages.picheight
+	player.mouthwidth = (68-36) * player.drawwidth/playerimages.picwidth
+	player.mouthheight = (186-162) * player.drawheight/playerimages.picheight
+
+	player.mouthinwater = false
 	
+	player.curanim = {}
+	player.curanim.frame = false
+	player.curanim.type = false
+	player.curanim.delay = 0
+	
+	player.weapons = {bow = weapons.bow.make(50),sword = weapons.sword.make()}
+	player.arrows = {}
+	player.equippedWeapon = 'bow'
+	
+	return player
+end
+
+function playerfunctions.makeBody()
+	player.bones = {}
+
 	player.bones.headBone = bone.make{id='head',startPoint={225,170},endPoint={225,130},adamp=3,lowerConstraint=-math.pi*0.75,upperConstraint=-math.pi*0.25}
 	player.bones.backarmBone = bone.make{id='backarm',startPoint={220,202}, aspeed=0,length=82,absAngle=70.3*math.pi/180,adamp=2.5,upperConstraint=math.pi*0.75,lowerConstraint=-math.pi/2}
 	player.bones.forearmBone = bone.make{id='forearm',parent=player.bones.backarmBone, aspeed=0,length=94,relAngle=-30*math.pi/180,adamp=2.5,lowerConstraint=-math.pi*0.7,upperConstraint=-15*math.pi/180}
@@ -257,7 +280,7 @@ function playerfunctions.make(name)
 	
 	player.body = body.make{loneBones={player.bones.wheelAttachmentBone}
 																	,bonePics={
-																		backbackarmPic
+																		player.bonePics.backbackarmPic
 																		,player.bonePics.backforearmPic
 																		,player.bonePics.torsoPic
 																		,player.bonePics.wheelPic
@@ -272,29 +295,7 @@ function playerfunctions.make(name)
 																	,adamp=1
 																	,airdamping=1}
 	player.body:setScale(38/45,119/140)
-	
-
-
-	player.mouthx = 36 * player.drawwidth/playerimages.picwidth
-
-	player.mouthy = 162 * player.drawheight/playerimages.picheight
-	player.mouthwidth = (68-36) * player.drawwidth/playerimages.picwidth
-	player.mouthheight = (186-162) * player.drawheight/playerimages.picheight
-
-	player.mouthinwater = false
-	
-	player.curanim = {}
-	player.curanim.frame = false
-	player.curanim.type = false
-	player.curanim.delay = 0
-	
-	player.weapons = {bow = weapons.bow.make(50),sword = weapons.sword.make()}
-	player.arrows = {}
-	player.equippedWeapon = 'bow'
-	
-	return player
 end
-
 
 function playerfunctions.update(dt)
 	for i,b in ipairs(player.arrows) do
@@ -674,6 +675,11 @@ end
 
 
 function playerfunctions.draw()
+
+	if true then
+		player.body:draw(true,true)
+		return 
+	end
 
 	if player.curanim.type then
 		love.graphics.draw(player.animationd[player.curanim.type][player.curanim.frame], player.x-player.drawwidth/2, player.y-player.drawheight/2,0 ,player.drawwidth/player.picwidth, player.drawheight/player.picheight)
