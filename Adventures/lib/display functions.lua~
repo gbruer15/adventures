@@ -1,0 +1,701 @@
+ 
+ 
+ ----------------------------------------------------------------------------
+button = {}
+button.__index = button
+buttonpic = love.graphics.newImage("Art/Misc Pics/button.png")
+buttonpicwidth = buttonpic:getWidth()
+buttonpicheight = buttonpic:getHeight()
+
+buttonoutlinepic = love.graphics.newImage("Art/Misc Pics/button outline.png")
+buttonsmalloutlinepic = love.graphics.newImage("Art/Misc Pics/button small outline.png")
+function button.make(att) --att stands for attributes
+	local b = {}
+	setmetatable(b, button)
+	b.metatable = 'button'
+		
+	b.text = att.text or ""
+	b.textcolor = att.textcolor or {255,255,255}
+	b.font = att.font or love.graphics.newFont(12)
+	b.textheight = b.font:getHeight()
+	b.textwidth = b.font:getWidth(b.text)	
+	
+	b.x,b.y = att.x or 0, att.y or 0
+	b.width,b.height = att.width or b.textwidth+25,att.height or b.textheight+8
+	if att.centerx then
+		b.x = att.centerx-b.width/2
+	end
+	if att.centery then
+		b.y = att.centery-b.height/2
+	end
+	b.image = att.image or buttonpic
+	b.imagewidth = b.image:getWidth()
+	b.imageheight = b.image:getHeight()
+	b.shadow = att.shadow
+	b.imagecolor = att.imagecolor or {255,255,255}
+	
+	b.dark = {}
+	for i,v in ipairs(b.imagecolor) do
+		table.insert(b.dark,v*200/255)
+	end
+	
+	b.selectedcolor = att.selectedcolor or {255,255,0}
+	if b.shadow then
+		b.shadow.x = b.shadow.x or 3
+		b.shadow.y = b.shadow.y or 3
+		b.shadow.width = b.shadow.width or 0
+		b.shadow.height = b.shadow.height or 0
+	end
+	
+	
+	b.hover = false
+	return b
+end
+ 
+function button:changeText(newtext)
+	self.text = newtext
+	self.textwidth = self.font:getWidth(self.text)	
+end
+
+function button:update()
+	local x,y = love.mouse.getPosition()
+	if collision.pointRectangle(x,y,self.x,self.y,self.width,self.height) then
+		self.hover = true
+	else
+		self.hover = false
+	end
+
+end
+ 
+function button:draw()
+	if self.shadow then 
+		love.graphics.setColor(0,0,0)
+		love.graphics.draw(self.image,self.x+self.shadow.x,self.y+self.shadow.y,0,(self.width+self.shadow.width)/self.imagewidth,(self.height+self.shadow.height)/self.imageheight)
+	end
+	
+	if self.selected then
+		love.graphics.setColor(unpack(self.selectedcolor))
+	elseif self.hover then
+		love.graphics.setColor(unpack(self.imagecolor))
+	else
+		love.graphics.setColor(unpack(self.dark))
+	end
+	love.graphics.draw(self.image,self.x,self.y,0,self.width/self.imagewidth,self.height/self.imageheight)	
+	
+
+	
+	love.graphics.setFont(self.font)
+	love.graphics.setColor(unpack(self.textcolor))
+	love.graphics.print(self.text, self.x+self.width/2 - self.textwidth/2, self.y + self.height/2 - self.textheight/2)
+end
+
+
+
+----------------------------------------------------------------------------
+slider = {}
+slider.__index = slider
+function slider.make(att) --att stands for attributes
+	local s = {}
+	setmetatable(s, slider)
+	s.metatable = 'slider'
+	
+	s.x,s.y = att.x or 0, att.y or 0
+	s.text = att.text or ""
+	s.textcolor = att.textcolor or {255,255,255}
+	s.font = att.font or love.graphics.newFont(12)
+	s.textheight = s.font:getHeight()
+	s.textwidth = s.font:getWidth(s.text)	
+	
+	s.width,s.height = att.width or 300,att.height or 20
+	s.image = att.image or sliderpic.pic
+	s.imagewidth = s.image:getWidth()
+	s.imageheight = s.image:getHeight()
+	s.shadow = att.shadow
+	if s.shadow then
+		s.shadow.x = s.shadow.x or 3
+		s.shadow.y = s.shadow.y or 3
+		s.shadow.width = s.shadow.width or 0
+		s.shadow.height = s.shadow.height or 0
+	end
+	
+	s.arrowpic = att.sliderpic or sliderpic.arrowpic
+	s.arrowpicheight = s.arrowpic:getHeight()
+	s.arrowpicwidth = s.arrowpic:getWidth()
+	s.arrowheight = att.height or 30
+	s.arrowwidth = att.width or 15
+	
+	s.color = att.color or {255,255,255}
+	s.value = att.value or 0
+	s.round = att.round
+	s.hover = false
+	s.mouseoffx = 0
+	
+	s.multiplyer = att.multiplyer or 100
+	s.multiplyerwidth = s.font:getWidth(s.multiplyer)
+	
+	return s
+end
+
+function slider:update()
+	local x,y = love.mouse.getPosition()
+	if collision.pointRectangle(x,y,self.x,self.y,self.width,self.height) then
+		self.hover = true
+	else
+		self.hover = false
+	end
+	if self.selected and love.mouse.isDown('l') then
+		self.value = (x + self.mouseoffx - self.x)/self.width
+		if self.value > 1 then
+			self.value = 1
+		elseif self.value < 0 then
+			self.value = 0
+		end
+	end
+	if self.round then
+		self.value = math.round(self.value,self.round)
+	end
+ end
+
+function slider:draw()
+	if self.shadow then
+		love.graphics.setColor(0,0,0)
+		love.graphics.draw(self.image,self.x+self.shadow.x,self.y+self.shadow.y,0,(self.width+self.shadow.width)/self.imagewidth,(self.height+self.shadow.height)/self.imageheight)			
+	end
+	love.graphics.setColor(self.color)
+	love.graphics.rectangle("fill", self.x,self.y,self.width,self.height)
+	
+	love.graphics.setColor(255,255,255)
+	love.graphics.draw(self.image,self.x,self.y,0,self.width/self.imagewidth,self.height/self.imageheight)	
+	
+	if not self.hover and not self.selected then
+		love.graphics.setColor(200,200,200,200)
+		--love.graphics.draw(self.image,self.x,self.y,0,self.width/self.imagewidth,self.height/self.imageheight)	
+	elseif self.selected then
+		love.graphics.setColor(200,255,0,100)
+		--love.graphics.draw(self.image,self.x,self.y,0,self.width/self.imagewidth,self.height/self.imageheight)	
+	end
+
+	love.graphics.setColor(255,255,255)
+	--love.graphics.rectangle("fill", self.x+self.value*self.width - 1, self.y, 3,self.height)
+	love.graphics.draw(self.arrowpic, self.x + self.value*self.width-self.arrowwidth/2, self.y-self.arrowheight*0.6,0,  self.arrowwidth/self.arrowpicwidth, self.arrowheight/self.arrowpicheight)
+	
+	love.graphics.setFont(self.font)
+	love.graphics.setColor(unpack(self.textcolor))
+	--love.graphics.print(self.text, self.x+self.width/2 - self.textwidth/2, self.y + self.height)
+	love.graphics.print(self.text, self.x, self.y + self.height)
+	love.graphics.print(math.round(self.value * self.multiplyer,1),self.x +self.width - self.multiplyerwidth, self.y + self.height )
+end
+
+
+
+boolBox = {}
+boolBox.__index = boolBox
+boolBox.pic = love.graphics.newImage("Misc Pics/Green Rectangle with raised border gray.png")
+boolBox.picwidth = boolBox.pic:getWidth()
+boolBox.picheight = boolBox.pic:getHeight()
+function boolBox.make(att)
+	local self = {}
+	setmetatable(self,boolBox)
+	self.width = att.width or 270
+	self.height = att.height or 140
+	
+	self.x = (att.centerx and att.centerx-self.width/2) or att.x or window.width/2-self.width/2
+	self.y = (att.centery and att.centery-self.height/2) or att.y or window.height/2-self.width/2
+	
+	self.titleText = att.titleText or ""
+	self.titleTextColor = att.titleTextColor or {255,255,255}
+	self.boxColor = att.boxColor or {100,100,100}
+	local cx = self.x+self.width/3
+	self.trueButton = button.make{text=att.trueText or "True",centerx=cx,y=self.y+self.height*0.7}
+	self.falseButton = button.make{text=att.falseText or "False",centerx=cx+self.width/3,y=self.y+self.height*0.7}
+	
+	self.value = nil
+	self.blurwidth = att.blurwidth or 10
+	
+	return self	
+end
+
+function boolBox:update(mx,my)
+	local mx,my = mx or love.mouse.getX(), my or love.mouse.getY()
+	self.hover = nil
+	self.trueButton:update()
+	self.falseButton:update()
+	self.hover = self.trueButton.hover 
+	if not self.hover then
+		if self.falseButton.hover then
+			self.hover = false
+		else
+			self.hover = nil
+		end
+	end
+end
+
+function boolBox:draw(blur)
+	if blur then
+		drawBlur.rectangle(self.x,self.y,self.width,self.height,self.blurwidth,{255,255,255},{255,255,255,0})
+	end
+	love.graphics.setColor(self.boxColor)
+	love.graphics.draw(boolBox.pic,self.x,self.y,0,self.width/boolBox.picwidth,self.height/boolBox.picheight)
+	
+	self.trueButton:draw()
+	self.falseButton:draw()
+	
+	love.graphics.setColor(self.titleTextColor)
+	love.graphics.printf(self.titleText,self.x,self.y+self.height/boolBox.picheight*35,self.width,'center')
+end
+
+function boolBox:mousepressed(x,y,button)
+	if button=='l' then
+		self.value = self.hover
+	end
+end
+
+function boolBox.getResponse(att)
+	local box = boolBox.make(att)
+	box.value = nil
+	
+	local old = {}
+	for i,v in ipairs(lovefunctions) do
+		old[v] = love[v]
+		love[v] = nil
+	end
+	
+	function love.mousepressed(x,y,button)
+		box:mousepressed(x,y,button)
+	end
+	
+	love.mouse.setVisible(true)
+	drawBlur.rectangleInversePower(box.x,box.y,box.width,box.height,10,{0,0,0},{255,255,255,0},5)
+	while box.value == nil do
+		love.processEvents()
+		
+		local mx,my = love.mouse.getPosition()
+		box:update(mx,my)
+		box:draw()
+		
+		love.graphics.present()
+	end
+	
+	for i,v in ipairs(lovefunctions) do
+		love[v] = old[v]
+	end
+	
+	return box.value
+end
+----------------------------------------------------------------------------
+drawBlur = {}
+
+function drawBlur.rectangle(x,y,width,height,blurwidth,incolor, outcolor,resolution)
+
+	blurwidth = blurwidth or 10
+	incolor = incolor or {0,0,0,255}
+	outcolor = outcolor or {0,0,0,0}
+
+	incolor[4] = incolor[4] or 255
+	outcolor[4] = outcolor[4] or 255
+	
+	resolution = resolution or 1
+	resolution = resolution * math.abs(blurwidth)/blurwidth
+	if resolution*blurwidth <= 0 then
+		error("bad argument")
+	end
+	--multipliers
+	local rmult = (incolor[1]-outcolor[1])/blurwidth
+	local gmult = (incolor[2]-outcolor[2])/blurwidth
+	local bmult = (incolor[3]-outcolor[3])/blurwidth
+
+	local amult = (incolor[4]-outcolor[4])/blurwidth
+	
+	love.graphics.setLineWidth(resolution)
+	for i=0,blurwidth,resolution do
+		love.graphics.setColor(rmult*i+outcolor[1],gmult*i+outcolor[2],bmult*i+outcolor[3],amult*i+outcolor[4])
+		love.graphics.rectangle("line", x-(blurwidth-i),y-(blurwidth-i),width+2*(blurwidth-i),height+2*(blurwidth-i))
+	end
+	
+end
+
+function drawBlur.rectangleInversePower(x,y,width,height,blurwidth,incolor, outcolor,pow,resolution)
+
+	blurwidth = blurwidth or 10
+	local bwsign = math.abs(blurwidth)/blurwidth
+	incolor = incolor or {0,0,0,255}
+	outcolor = outcolor or {0,0,0,0}
+
+	incolor[4] = incolor[4] or 255
+	outcolor[4] = outcolor[4] or 255
+	
+	pow = pow or 1
+	resolution = resolution or 1
+	resolution = resolution * bwsign
+
+	--color const
+	local rconst = (outcolor[1]*blurwidth^pow-incolor[1])/(blurwidth^pow-1)
+	local gconst = (outcolor[2]*blurwidth^pow-incolor[2])/(blurwidth^pow-1)
+	local bconst = (outcolor[3]*blurwidth^pow-incolor[3])/(blurwidth^pow-1)
+	local aconst = (outcolor[4]*blurwidth^pow-incolor[4])/(blurwidth^pow-1)
+	
+	--color factors
+	local rfact = (incolor[1]-rconst)
+	local gfact = (incolor[2]-gconst)
+	local bfact = (incolor[3]-bconst)
+	local afact = (incolor[4]-aconst)
+	
+	
+	love.graphics.setLineWidth(resolution)
+	for i=0,(math.abs(blurwidth)-1)*bwsign,resolution do
+		love.graphics.setColor(rfact/(blurwidth-i)+rconst,gfact/(blurwidth-i)^pow+gconst,bfact/(blurwidth-i)^pow+bconst,afact/(blurwidth-i)^pow+aconst)
+		love.graphics.rectangle("line", x-(blurwidth-i),y-(blurwidth-i),width+2*(blurwidth-i),height+2*(blurwidth-i))
+	end
+	love.graphics.setColor(incolor)
+	love.graphics.rectangle("line",x,y,width,height)
+	
+end
+
+--[[ various extraneous drawBlur.rectangle's
+function drawBlur.rectangleSquare(x,y,width,height,blurwidth,incolor, outcolor,resolution)
+
+	blurwidth = blurwidth or 10
+	incolor = incolor or {0,0,0,255}
+	outcolor = outcolor or {0,0,0,0}
+
+	incolor[4] = incolor[4] or 255
+	outcolor[4] = outcolor[4] or 255
+	
+	resolution = resolution or 1
+	if resolution <= 0 then
+		error("bad argument #8 to function drawBlur.rectangle: resolution must be greater than 0")
+	end
+	--color factors
+	local rfact = -(incolor[1]-outcolor[1])/blurwidth^2
+	local gfact = -(incolor[2]-outcolor[2])/blurwidth^2
+	local bfact = -(incolor[3]-outcolor[3])/blurwidth^2
+
+	local afact = -(incolor[4]-outcolor[4])/blurwidth^2
+	
+	love.graphics.setLineWidth(resolution)
+	for i=0,blurwidth,resolution do
+		love.graphics.setColor(rfact*(blurwidth-i)+incolor[1],gfact*(blurwidth-i)^2 + incolor[2],bfact*(blurwidth-i)^2 + incolor[3],afact*(blurwidth-i)^2 + incolor[4])
+		love.graphics.rectangle("line", x-(blurwidth-i),y-(blurwidth-i),width+2*(blurwidth-i),height+2*(blurwidth-i))
+	end
+	
+end
+
+function drawBlur.rectangleInverseSquare(x,y,width,height,blurwidth,incolor, outcolor,resolution)
+
+	blurwidth = blurwidth or 10
+	incolor = incolor or {0,0,0,255}
+	outcolor = outcolor or {0,0,0,0}
+
+	incolor[4] = incolor[4] or 255
+	outcolor[4] = outcolor[4] or 255
+	
+	resolution = resolution or 1
+	if resolution <= 0 then
+		error("bad argument #8 to function drawBlur.rectangle: resolution must be greater than 0")
+	end	
+	--color const
+	local rconst = (outcolor[1]*blurwidth^2-incolor[1])/(blurwidth^2-1)
+	local gconst = (outcolor[2]*blurwidth^2-incolor[2])/(blurwidth^2-1)
+	local bconst = (outcolor[3]*blurwidth^2-incolor[3])/(blurwidth^2-1)
+	local aconst = (outcolor[4]*blurwidth^2-incolor[4])/(blurwidth^2-1)
+	
+	--color factors
+	local rfact = (incolor[1]-rconst)
+	local gfact = (incolor[2]-gconst)
+	local bfact = (incolor[3]-bconst)
+	local afact = (incolor[4]-aconst)
+	
+	
+	love.graphics.setLineWidth(resolution)
+	for i=0,blurwidth-1,resolution do
+		love.graphics.setColor(rfact/(blurwidth-i)+rconst,gfact/(blurwidth-i)^2 + gconst,bfact/(blurwidth-i)^2 + bconst,afact/(blurwidth-i)^2 + aconst)
+		love.graphics.rectangle("line", x-(blurwidth-i),y-(blurwidth-i),width+2*(blurwidth-i),height+2*(blurwidth-i))
+	end
+	
+end
+
+function drawBlur.rectangleSquareRoot(x,y,width,height,blurwidth,incolor, outcolor,resolution)
+
+	blurwidth = blurwidth or 10
+	incolor = incolor or {0,0,0,255}
+	outcolor = outcolor or {0,0,0,0}
+
+	incolor[4] = incolor[4] or 255
+	outcolor[4] = outcolor[4] or 255
+	resolution = resolution or 1
+	if resolution <= 0 then
+		error("bad argument #8 to function drawBlur.rectangle: resolution must be greater than 0")
+	end	
+	--color factors
+	local rfact = (outcolor[1]-incolor[1])/math.sqrt(blurwidth)
+	local gfact = (outcolor[2]-incolor[2])/math.sqrt(blurwidth)
+	local bfact = (outcolor[3]-incolor[3])/math.sqrt(blurwidth)
+	local afact = (outcolor[4]-incolor[4])/math.sqrt(blurwidth)
+	love.graphics.setLineWidth(resolution)
+	for i=0,blurwidth,resolution do
+		love.graphics.setColor(rfact*math.sqrt(blurwidth-i)+incolor[1],gfact*math.sqrt(blurwidth-i) + incolor[2],bfact*math.sqrt(blurwidth-i) + incolor[3],afact*math.sqrt(blurwidth-i) + incolor[4])
+		love.graphics.rectangle("line", x-(blurwidth-i),y-(blurwidth-i),width+2*(blurwidth-i),height+2*(blurwidth-i))
+	end	
+end
+
+function drawBlur.circle(x,y,inradius,nseg,blurwidth,incolor, outcolor,resolution)
+
+	blurwidth = blurwidth or 10
+	incolor = incolor or {0,0,0,255}
+	outcolor = outcolor or {0,0,0,0}
+
+	incolor[4] = incolor[4] or 255
+	outcolor[4] = outcolor[4] or 255
+
+	resolution = resolution or 1
+	if resolution <= 0 then
+		error("bad argument #7 to function drawBlur.circle: resolution must be greater than 0")
+	end
+
+	--multipliers
+	local rmult = (incolor[1]-outcolor[1])/blurwidth
+	local gmult = (incolor[2]-outcolor[2])/blurwidth
+	local bmult = (incolor[3]-outcolor[3])/blurwidth
+	local amult = (incolor[4]-outcolor[4])/blurwidth
+	love.graphics.setLineWidth(resolution)
+	for i=0,blurwidth,resolution do
+		love.graphics.setColor(rmult*i+outcolor[1],gmult*i+outcolor[2],bmult*i+outcolor[3],amult*i+outcolor[4])
+		love.graphics.circle("line", x,y,inradius + blurwidth-i,nseg)
+	end
+end
+--]]
+
+
+function drawBlur.image(image,centerx,centery,width,height,blurwidth,incolor, outcolor,resolution)
+	
+	local iwidth,iheight = image:getWidth(), image:getHeight()
+	blurwidth = blurwidth or 10
+	incolor = incolor or {0,0,0,255}
+	outcolor = outcolor or {0,0,0,0}
+
+	incolor[4] = incolor[4] or 255
+	outcolor[4] = outcolor[4] or 255
+	
+	resolution = resolution or 1
+	resolution = resolution * math.abs(blurwidth)/blurwidth
+	if resolution*blurwidth <= 0 then
+		error("bad argument")
+	end
+	--multipliers
+	local rmult = (incolor[1]-outcolor[1])/blurwidth
+	local gmult = (incolor[2]-outcolor[2])/blurwidth
+	local bmult = (incolor[3]-outcolor[3])/blurwidth
+	local amult = (incolor[4]-outcolor[4])/blurwidth
+
+	for i=0,blurwidth,resolution do
+		love.graphics.setColor(rmult*i+outcolor[1],gmult*i+outcolor[2],bmult*i+outcolor[3],amult*i+outcolor[4])
+		local dwidth = width+blurwidth-i
+		local dheight = height+blurwidth-i
+		love.graphics.draw(image, centerx-dwidth/2,centery-dheight/2,0,dwidth/iwidth,dheight/iheight)
+	end
+end
+
+function drawBlur.imageInversePower(image,centerx,centery,width,height,blurwidth,incolor,outcolor,pow,resolution)
+	
+	local iwidth,iheight = image:getWidth(), image:getHeight()
+	blurwidth = blurwidth or 10
+	incolor = incolor or {0,0,0,255}
+	outcolor = outcolor or {0,0,0,0}
+
+	incolor[4] = incolor[4] or 255
+	outcolor[4] = outcolor[4] or 255
+	
+	pow = pow or 1
+	resolution = resolution or 1
+	resolution = resolution * math.abs(blurwidth)/blurwidth
+	if resolution*blurwidth <= 0 then
+		error("bad argument")
+	end
+	--color const
+	local rconst = (outcolor[1]*blurwidth^pow-incolor[1])/(blurwidth^pow-1)
+	local gconst = (outcolor[2]*blurwidth^pow-incolor[2])/(blurwidth^pow-1)
+	local bconst = (outcolor[3]*blurwidth^pow-incolor[3])/(blurwidth^pow-1)
+	local aconst = (outcolor[4]*blurwidth^pow-incolor[4])/(blurwidth^pow-1)
+	
+	--color factors
+	local rfact = (incolor[1]-rconst)
+	local gfact = (incolor[2]-gconst)
+	local bfact = (incolor[3]-bconst)
+	local afact = (incolor[4]-aconst)
+	
+	
+	love.graphics.setLineWidth(resolution)
+	for i=0,blurwidth-1,resolution do
+		love.graphics.setColor(rfact/(blurwidth-i)+rconst,gfact/(blurwidth-i)^pow+gconst,bfact/(blurwidth-i)^pow+bconst,afact/(blurwidth-i)^pow+aconst)
+		local dwidth = width+blurwidth-i
+		local dheight = height+blurwidth-i
+		love.graphics.draw(image, centerx-dwidth/2,centery-dheight/2,0,dwidth/iwidth,dheight/iheight)
+	end
+	
+end
+
+function drawBlur.ellipse(x,y,xd,yd,angle,nseg,blurwidth,incolor,outcolor,resolution)
+	--[[
+	love.graphics.push()
+
+	love.graphics.translate(x,y)
+	love.graphics.rotate(angle)
+	if yd>xd then
+		love.graphics.scale(xd/yd,1)
+		drawBlur.circle(0,0,xd,math.max(yd,10),blurwidth,incolor,outcolor,resolution)
+	else
+		love.graphics.scale(yd/xd,1)
+		drawBlur.circle(0,0,yd,math.max(xd,10),blurwidth,incolor,outcolor,resolution)
+	end
+	love.graphics.pop()
+	--]]
+	angle = angle or 0
+
+
+	blurwidth = blurwidth or 10
+	incolor = incolor or {0,0,0,255}
+	outcolor = outcolor or {0,0,0,0}
+
+	incolor[4] = incolor[4] or 255
+	outcolor[4] = outcolor[4] or 255
+
+	resolution = resolution or 1
+	resolution = resolution * math.abs(blurwidth)/blurwidth
+	if resolution*blurwidth <= 0 then
+		error("bad argument")
+	end
+
+	--multipliers
+	local rmult = (incolor[1]-outcolor[1])/blurwidth
+	local gmult = (incolor[2]-outcolor[2])/blurwidth
+	local bmult = (incolor[3]-outcolor[3])/blurwidth
+	local amult = (incolor[4]-outcolor[4])/blurwidth
+	love.graphics.setLineWidth(resolution)
+	for i=0,blurwidth,resolution do
+		love.graphics.setColor(rmult*i+outcolor[1],gmult*i+outcolor[2],bmult*i+outcolor[3],amult*i+outcolor[4])
+		love.graphics.ellipse("line", x,y,xd+blurwidth-i,yd+blurwidth-i,angle,nseg)
+	end
+end
+
+----------------------------------------------------------------------------
+
+
+tiledraw = {}
+
+function tiledraw.image(image, left,top,width,height, tilewidth,tileheight,xoffset,yoffset)
+	local iwidth,iheight = image:getWidth(),image:getHeight()
+
+	local xoffset,yoffset = xoffset or 0, yoffset or 0
+
+	local x = left
+	local y
+	local n = 1
+	love.graphics.setScissor(left,top,width,height)
+	while x < left+width do
+		y = top
+		while y < top+height do
+			love.graphics.draw(image,x,y,0,tilewidth/iwidth,tileheight/iheight)
+			y = y + tileheight
+			n = n + 1
+		end
+		x = x + tilewidth
+		
+	end
+
+	love.graphics.setScissor()
+	return n
+end
+  
+---------------------------------------------------------------------------
+function colors.getPulsingColors(incolor,outcolor,timefactor,outsin)
+		
+	incolor[4] = incolor[4] or 255
+	outcolor[4] = outcolor[4] or 255
+	timefactor = timefactor or 1
+	outsin = outsin or 1
+	
+	local r = incolor[1] + (outcolor[1]-incolor[1])/2*(1+math.sin(love.timer.getTime()*timefactor)*outsin)
+	local g = incolor[2] + (outcolor[2]-incolor[2])/2*(1+math.sin(love.timer.getTime()*timefactor)*outsin)
+	local b = incolor[3] + (outcolor[3]-incolor[3])/2*(1+math.sin(love.timer.getTime()*timefactor)*outsin)
+	local a = incolor[4] + (outcolor[4]-incolor[4])/2*(1+math.sin(love.timer.getTime()*timefactor)*outsin)
+	
+	
+
+	return {r,g,b,a}
+end
+
+love.graphics.oldRectangle = love.graphics.rectangle
+function love.graphics.rectangle(dmode,left,top,width,height,ang) --draws a rectangle
+	if ang == nil then
+		love.graphics.oldRectangle(dmode,left,top,width,height)
+		return
+	end
+
+
+	love.graphics.push()
+
+	love.graphics.translate(left,top)
+	love.graphics.rotate(ang)
+	love.graphics.translate(-left,-top)
+
+	love.graphics.oldRectangle(dmode,left,top,width,height)
+
+	love.graphics.pop()
+end
+
+function love.graphics.ellipse(dmode,left,top,xd,yd, angle,nseg) --Draws an ellipse
+	
+	--[[love.graphics.push()
+
+	xd = math.abs(xd)/2
+	yd = (yd and math.abs(yd)/2) or xd
+
+	love.graphics.translate(x,y)
+
+	love.graphics.rotate(angle or 0)
+	love.graphics.scale(xd,yd or xd)
+
+	love.graphics.translate(-x,-y)
+
+	love.graphics.circle(dmode,x,y,1,math.max(math.max(xd,yd),10))
+
+	love.graphics.pop()
+
+	angle = angle or 0
+	love.graphics.setLineWidth(2)
+	love.graphics.setColor(0,0,0)
+
+	--]]
+	angle = angle or  0
+	love.graphics.push()
+
+	love.graphics.translate(left,top)
+	love.graphics.rotate(angle)
+	love.graphics.translate(xd/2,yd/2)
+	
+	local lwidth = love.graphics.getLineWidth()
+	if yd>xd then
+		love.graphics.scale(1,yd/xd)
+		love.graphics.circle(dmode,0,0,xd/2,math.max(xd/2,10))
+	else
+		love.graphics.scale(xd/yd,1)
+		love.graphics.circle(dmode,0,0,yd/2,math.max(yd/2,10))
+	end
+	love.graphics.pop()
+-----------------------------
+--[[
+	love.graphics.push()
+
+	love.graphics.translate(x,y)
+	love.graphics.rotate(angle)
+	love.graphics.translate(-x,-y)
+
+
+	--local xdif, ydif = xd*math.cos(angle), yd*math.sin(angle)
+	--love.graphics.line(x+xdif,y+ydif,x-xdif,y-ydif)
+
+	--love.graphics.line(x-xd,y,x+xd,y)
+	--love.graphics.line(x,y-yd,x,y+yd)
+	love.graphics.pop()
+	--]]
+end

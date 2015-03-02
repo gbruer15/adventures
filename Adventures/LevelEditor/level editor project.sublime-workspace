@@ -1,0 +1,350 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"v",
+				"v"
+			],
+			[
+				"require",
+				"requireDirectory"
+			],
+			[
+				"level",
+				"levelediting"
+			],
+			[
+				"height",
+				"height"
+			],
+			[
+				"actual",
+				"actualheight"
+			],
+			[
+				"max",
+				"maxwateragility-player"
+			],
+			[
+				"description",
+				"descriptionfont"
+			],
+			[
+				"desc",
+				"descriptionfont"
+			],
+			[
+				"upgrad",
+				"upgradescreen"
+			],
+			[
+				"else",
+				"else"
+			],
+			[
+				"scre",
+				"screenWidth"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "main.lua",
+			"settings":
+			{
+				"buffer_size": 4199,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Linux 9.0 Love2d",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 153.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/grant/Adventures Workspace/Adventures/LevelEditor/level editor project.sublime-project",
+		"/C/Users/Grant/Desktop/LevelEditor/main.lua",
+		"/C/Users/Grant/Desktop/LevelEditor/lib/states.lua",
+		"/C/Users/Grant/Desktop/LevelEditor/lib/misc resources.lua",
+		"/C/Users/Grant/Desktop/Love/Adventures/LevelEditor/main.lua",
+		"/C/Users/Grant/Desktop/Love/Adventures/LevelEditor/lib/hud.lua",
+		"/C/Users/Grant/Desktop/Love/Adventures/LevelEditor/lib/camera.lua",
+		"/C/Users/Grant/Desktop/Love/Adventures/LevelEditor/lib/menu.lua",
+		"/C/Users/Grant/Desktop/Love/Adventures/LevelEditor/lib/misc resources.lua",
+		"/C/Users/Grant/Desktop/Love/Adventures/LevelEditor/lib/editor.lua",
+		"/C/Users/Grant/Desktop/Love/Adventures/LevelEditor/lib/level.lua",
+		"/C/Users/Grant/Desktop/Love/Adventures/LevelEditor/lib/states.lua",
+		"/C/Users/Grant/Desktop/Love/Adventures/LevelEditor/lib/enemies.lua",
+		"/C/Users/Grant/Desktop/LevelEditor/Levels/Birthing Place Shop.lua",
+		"/C/Users/Grant/Desktop/LevelEditor/lib/New Tables.lua",
+		"/C/Users/Grant/Desktop/LevelEditor/level editor project.sublime-project",
+		"/C/Users/Grant/Desktop/LevelEditor/lib/pawn.lua",
+		"/C/Users/Grant/Desktop/LevelEditor/lib/display functions.lua",
+		"/C/Users/Grant/Desktop/LevelEditor/lib/textinput.lua",
+		"/C/Users/Grant/Desktop/LevelEditor/lib/hud.lua",
+		"/C/Users/Grant/Desktop/LevelEditor/lib/editor.lua",
+		"/C/Users/Grant/AppData/Roaming/LOVE/Maze Levels/Level Editor Levels/new.lua",
+		"/C/Users/Grant/AppData/Roaming/LOVE/Maze Levels/Level Editor Levels/New Birthing Place.lua",
+		"/C/Users/Grant/AppData/Roaming/LOVE/Maze Levels/Level Editor Levels/new level.lua",
+		"/C/Users/Grant/AppData/Roaming/LOVE/Maze Levels/Level Editor Levels/jk.lua",
+		"/C/Users/Grant/AppData/Roaming/LOVE/Maze Levels/Level Editor Levels/george.lua",
+		"/C/Users/Grant/AppData/Roaming/LOVE/Maze Levels/Level Editor Levels/the level.lua",
+		"/C/Users/Grant/AppData/Roaming/LOVE/Maze Levels/Level Editor Levels/jklsd.lua",
+		"/C/Users/Grant/Desktop/LevelEditor/lib/editor",
+		"/C/Users/Grant/Desktop/LevelEditor/lib/player.lua",
+		"/C/Users/Grant/Desktop/Adventures/Adventures Project.sublime-project",
+		"/C/Users/Grant/Desktop/Adventures/lib/enemies.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/physics.lua",
+		"/C/Users/Grant/Desktop/Adventures/Levels/Birthing Place.lua",
+		"/C/Users/Grant/Desktop/Adventures/main.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/save.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/camera.lua",
+		"/C/Users/Grant/Desktop/Adventures/Levels/Birthing Place.txt",
+		"/C/Users/Grant/Desktop/Adventures/lib/collision.lua",
+		"/C/Users/Grant/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Grant/Desktop/Adventures/conf.lua",
+		"/C/Users/Grant/Videos/darth.ps",
+		"/C/Users/Grant/Desktop/Adventures/lib/hud.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/display functions.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/misc resources.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/states.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/player.lua",
+		"/C/Users/Grant/Desktop/Adventures/lib/level.lua",
+		"/C/Users/Grant/Desktop/Adventures/george.lua",
+		"/C/Users/Grant/Desktop/Adventures/Adventures Project.sublime-workspace",
+		"/C/Users/Grant/AppData/Roaming/Sublime Text 2/Packages/User/Adventures Project.sublime-project",
+		"/C/Users/Grant/AppData/Roaming/Sublime Text 2/Packages/User/LOVE2D Build.sublime-build",
+		"/C/Users/Grant/Desktop/Torque/main.lua",
+		"/C/Program Files (x86)/LOVE/love.exe",
+		"/C/Users/Grant/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Grant/AppData/Roaming/Sublime Text 2/Packages/User/Lua.sublime-settings",
+		"/C/Users/Grant/AppData/Roaming/Sublime Text 2/Packages/Lua/for-k-v-in-pairs().sublime-snippet",
+		"/C/Users/Grant/AppData/Roaming/Sublime Text 2/Packages/User/Distraction Free.sublime-settings",
+		"/C/Users/Grant/Desktop/Basic LOVE2D/main.lua",
+		"/C/Users/Grant/Desktop/Gamel/main.lua"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"C:\\Users\\Grant\\Desktop\\LevelEditor\\lib",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"mkdir",
+			"print(",
+			"love.graphics.setColor(255,255,",
+			"love.graphics.setColor(255,255,0",
+			"love.graphics.setColor(255,255,",
+			"love.graphics.setColor(255,255,0",
+			"editor.selected",
+			"player.location",
+			"signmenu",
+			"menu",
+			"mainmenu",
+			"menus",
+			"menu",
+			"menus",
+			"menu",
+			"mainmenu",
+			"table.insert",
+			"draw",
+			"player.location",
+			"leveltypes",
+			"editor.location",
+			"\n				",
+			"player.name",
+			"editor.location",
+			"location",
+			"quit",
+			"grid",
+			"leveltypes",
+			"sign",
+			"gravity",
+			"wateragility",
+			"player.inwaterheight",
+			"player x",
+			"info",
+			"getWorldScreenRect",
+			"player.yspeed",
+			"upoints",
+			"levelupxps",
+			"auto",
+			"player",
+			"player.inwater",
+			"waterabilit",
+			"\")}",
+			"buoyancy",
+			"buttonshadow",
+			"()\n",
+			"]\n",
+			"40",
+			"window",
+			"paused = true",
+			"speed",
+			")\n",
+			"fileheaders",
+			"inwater",
+			")\n",
+			"gravity",
+			"comple",
+			"compl",
+			"line",
+			"dt",
+			")\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"editor.level",
+			"editor.leveltypes",
+			"editor.level",
+			"inputstring",
+			"editor.level",
+			"left",
+			"box"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "main.lua",
+					"settings":
+					{
+						"buffer_size": 4199,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								512,
+								512
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 220.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 716.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/home/grant/Adventures Workspace/Adventures/Adventures Project.sublime-project"
+			]
+		],
+		"width": 1301.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

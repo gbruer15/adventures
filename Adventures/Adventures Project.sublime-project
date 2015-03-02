@@ -1,0 +1,87 @@
+{
+	"build_systems":
+	[
+		{
+			"cmd":
+			[
+				"C:\\Program Files (x86)\\LOVE\\love.exe",
+				"$project_path"
+			],
+			"name": "Windows Love2d 8.0"
+		},
+		{
+			"cmd":
+			[
+				"C:\\Program Files\\LOVE9\\love.exe",
+				"$project_path"
+			],
+			"shell": true,
+			"name": "Windows Love2d 9.0"
+		},
+		{
+			"cmd":
+			[
+				"love",
+				"$project_path"
+			],
+			"shell": false,
+			"name": "Linux Love2d 9.0"
+		}
+	],
+	"folders":
+	[
+		{
+			"path": "C:\\Users\\Grant\\scm\\AdventuresKiln\\Adventures"
+			,"file_include_patterns":
+			[
+				"*.lua"
+				//"*.lua~"
+			]
+			,"folder_include_patterns":
+			[
+				//"lib"
+				//,"lib/Enemies"
+			]
+			,"file_exclude_patterns":[
+				"*.lua~"
+			]
+			
+		}
+		,{
+			"path": "LevelEditor/Levels"
+			,"file_exclude_patterns":[
+				"*.lua~"
+			]
+		}
+		,{
+			"path": "/home/grant/scm/AdventuresKiln/Adventures"
+			,"file_include_patterns":
+			[
+				"*.lua"
+				//"*.lua~"
+			]
+			,"folder_include_patterns":
+			[
+				//"lib"
+				//,"lib/Enemies"
+			]
+			,"file_exclude_patterns":[
+				"*.lua~"
+			]
+		}
+		
+		,{
+			"path": "lib"
+			,"file_exclude_patterns":[
+				"*.lua~"
+			]
+		}
+		,{
+			"path": "game"
+			,"file_exclude_patterns":[
+				"*.lua~"
+			]
+		}
+	]
+	
+}

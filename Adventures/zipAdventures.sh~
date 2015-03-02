@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "About to zip Adventures"
+zip -r -q -9 Adventures.love *
+echo "I finished."

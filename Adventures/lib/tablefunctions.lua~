@@ -1,0 +1,15 @@
+
+
+function nextk(t,k)
+	local n,l = next(t,k)
+	while n ~= nil and type(n) == 'number' do 
+		n,l = next(t,n)
+	end
+	
+	return n,l
+end
+
+function kpairs(t)
+	return nextk,t,nil
+end
+

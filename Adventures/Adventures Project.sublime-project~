@@ -1,0 +1,50 @@
+{
+	"build_systems":
+	[
+		{
+			"cmd":
+			[
+				"C:\\Program Files (x86)\\LOVE\\love.exe",
+				"$project_path"
+			],
+			"name": "Windows 8.0 Love2d"
+		},
+		{
+			"cmd":
+			[
+				"C:\\Program Files\\LOVE9\\love.exe",
+				"$project_path"
+			],
+			"shell": true,
+			"name": "Windows 9.0 Love2d"
+		},
+		{
+			"cmd":
+			[
+				"love",
+				"$project_path"
+			],
+			"shell": false,
+			"name": "Linux 9.0 Love2d"
+		}
+	],
+	"folders":
+	[
+		{
+			"file_include_patterns":
+			[
+				"*.lua"
+				//"*.lua~"
+			],
+			"folder_include_patterns":
+			[
+				//"lib",
+				//"lib/Enemies"
+			],
+			"path": "/home/grant/Adventures Workspace/Adventures"
+		},
+		{
+			"path": "LevelEditor/Levels"
+		}
+	]
+}
