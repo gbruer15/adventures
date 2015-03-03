@@ -149,10 +149,10 @@ function bone:setBodyRelAngle(newAngle)
 	self.absAngle = self.absAngle + (newAngle-self.bodyRelAngle)
 	self.bodyRelAngle = newAngle
 	
-	print(self.id .. ' ' .. self.bodyRelAngle .. ' anim update: ')
+	--print(self.id .. ' ' .. self.bodyRelAngle .. ' anim update: ')
 	
 	self:update(0)
-	print(self.id .. ' ' .. self.bodyRelAngle .. ' anim update: ')
+	--print(self.id .. ' ' .. self.bodyRelAngle .. ' anim update: ')
 end
 
 function bone:update(dt)

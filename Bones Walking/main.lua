@@ -102,7 +102,7 @@ function updateAnimation(dt)
 				if animationlist[1].numloops > 0 and not animationlist[1].loop then
 					table.remove(animationlist,1)
 					if #animationlist == 0 and keyFrames[bodypartname].bounce then
-						setupSpecificBoneAnimation(bodypartname,keyFrames[bodypartname])
+						playerfunctions.setupSpecificBoneAnimation(bodypartname,keyFrames[bodypartname])
 					end
 				end
 			end

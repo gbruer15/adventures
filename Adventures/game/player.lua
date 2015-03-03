@@ -301,16 +301,16 @@ function playerfunctions.makeBody()
 	
 	local t = 0.8
 	player.keyFrames = {
-		player.bones.backarmBone={bodyRelAngle={60,93,60},time={t,t},bounce=true}
-		,player.bones.forearmBone={relAngle={-50,-10,-50},time={t,t}, bounce=true}
-		,player.bones.backbackarmBone={bodyRelAngle={93,60,93},time={t,t},bounce=true}
-		,player.bones.backforearmBone={relAngle={-10,-50,-10},time={t,t}, bounce=true}
-		,player.bones.wheelBone={relAngle={0,360},loop=true,time={3}}
+		backarmBone={bodyRelAngle={60,93,60},time={t,t},bounce=true}
+		,forearmBone={relAngle={-50,-10,-50},time={t,t}, bounce=true}
+		,backbackarmBone={bodyRelAngle={93,60,93},time={t,t},bounce=true}
+		,backforearmBone={relAngle={-10,-50,-10},time={t,t}, bounce=true}
+		,wheelBone={relAngle={0,360},loop=true,time={3} }
 	 }
 	
 	playerfunctions.setupAnimation()
 	
-	shrinkAnim = animation.make(0.7,1.5,1,false,true)
+	--shrinkAnim = animation.make(0.7,1.5,1,false,true)
 
 
 end
@@ -332,6 +332,45 @@ function playerfunctions.setupAnimation()
 			end
 		end
 	end
+end
+
+function playerfunctions.setupSpecificBoneAnimation(boneName, infoTable)
+	player.bodyAnimations[boneName] = {}
+	for valuename,b in pairs(infoTable) do
+		if valuename ~= 'time' and valuename ~= 'bounce' then
+			player.bodyAnimations[boneName][valuename] = {}
+			local n = 1
+			while n < #b do
+				if b[n] and b[n+1] then
+					player.bodyAnimations[boneName][valuename][n] = animation.make(b[n]/180*math.pi,b[n+1]/180*math.pi,infoTable.time[n],false)
+				end
+				n = n+1
+			end
+		end
+	end
+end
+
+function playerfunctions.updateAnimation(dt)
+	for bodypartname,v in pairs(player.bodyAnimations) do
+		for valuename,animationlist in pairs(v) do
+			if animationlist[1] then
+				animationlist[1]:update(dt)
+				if valuename == 'bodyRelAngle' then
+					player.bones[bodypartname]:setBodyRelAngle(animationlist[1].value)
+				else
+					player.bones[bodypartname][valuename] = animationlist[1].value
+				end
+				if animationlist[1].numloops > 0 and not animationlist[1].loop then
+					table.remove(animationlist,1)
+					if #animationlist == 0 and player.keyFrames[bodypartname].bounce then
+						playerfunctions.setupSpecificBoneAnimation(bodypartname,player.keyFrames[bodypartname])
+					end
+				end
+			end
+		end
+	end
+	
+	--print('\n\n\n')
 end
 
 
@@ -634,6 +673,8 @@ function playerfunctions.update(dt)
 	player.body:setScale(1,1)
 	player.body:scale(player.drawwidth/playerimages.picwidth,player.drawheight/playerimages.picheight)
 	
+	playerfunctions.updateAnimation(dt*math.abs(player.xspeed)/player.speed)
+
 	player.body:update(dt)
 	
 	if player.curanim.type then
@@ -722,6 +763,10 @@ end
 function playerfunctions.draw()
 
 	if true then
+		love.graphics.setColor(0,0,0)
+		love.graphics.setLineWidth(14*player.body.xscale)
+		love.graphics.line(player.bones.spineBone.startPoint[1],player.bones.spineBone.startPoint[2],player.bones.spineBone.endPoint[1],player.bones.spineBone.endPoint[2])
+	
 		player.body:draw(false,false)
 		return 
 	end
