@@ -122,6 +122,9 @@ function playerfunctions.load()
 		player = playerfunctions.make(name)
 				
 	end
+
+	playerfunctions.makeBody()
+
 	if selectedfile == 'one' then
 		player.color = {254,63,3}
 	elseif selectedfile == 'two' then
@@ -238,6 +241,136 @@ function playerfunctions.make(name)
 	player.equippedWeapon = 'bow'
 	
 	return player
+end
+
+function playerfunctions.makeBody()
+	player.bones = {}
+
+	player.bones.headBone = bone.make{id='head',startPoint={225,170},endPoint={225,130},adamp=3,lowerConstraint=-math.pi*0.75,upperConstraint=-math.pi*0.25}
+	player.bones.backarmBone = bone.make{id='backarm',startPoint={220,202}, aspeed=0,length=82,absAngle=70.3*math.pi/180,adamp=2.5,upperConstraint=math.pi*0.75,lowerConstraint=-math.pi/2}
+	player.bones.forearmBone = bone.make{id='forearm',parent=player.bones.backarmBone, aspeed=0,length=94,relAngle=-30*math.pi/180,adamp=2.5,lowerConstraint=-math.pi*0.7,upperConstraint=-15*math.pi/180}
+	---89.3*math.pi/180
+	player.bones.fistBone = bone.make{id='fist',parent=player.bones.forearmBone, aspeed=0,length=12,relAngle=0,adamp=2.5,upperConstraint=20/180*math.pi,lowerConstraint=-30/180*math.pi}
+	player.bones.backbackarmBone=bone.make{id='backba',startPoint={230,196},aspeed=0,length=82,absAngle=-10.3*math.pi/180,adamp=1.5,upperConstraint=math.pi*0.75,lowerConstraint=-math.pi/2}
+	player.bones.backforearmBone=bone.make{id='backfa',parent=player.bones.backbackarmBone,aspeed=0,length=94,relAngle=-15*math.pi/180,adamp=1.5, lowerConstraint=-math.pi*0.7,upperConstraint=-15*math.pi/180}
+	
+	player.bones.swordBone = bone.make{id='sword',parent=player.bones.fistBone, length=100, relAngle=-math.pi/2,adamp=4}
+	player.bones.wheelAttachmentBone = bone.make{id='wheelattach',startPoint={225,342},length=120,absAngle=math.pi/2}
+	player.bones.wheelBone = bone.make{id='wheel',parent=player.bones.wheelAttachmentBone,length=67,relAngle=-math.pi/2,adamp=10}
+	
+	player.bones.spineBone = bone.make{id='spine',startPoint={225,492},length=259,absAngle=-math.pi/2,adamp=4, children={player.bones.backarmBone,player.bones.backbackarmBone,player.bones.headBone}, noConnection=true,lowerConstraint=-math.pi/2-20/180*math.pi,upperConstraint=-math.pi/2+30/180*math.pi}
+	
+	player.bonePics = {}
+	player.bonePics.torsoPic = bonePicture.make(love.graphics.newImage('Art/PlayerParts/torso.png'),{relPivotPoint={54,326},bonePicAngle=math.pi/2, bone=player.bones.spineBone})
+	
+	player.bonePics.fistPic = bonePicture.make(love.graphics.newImage('Art/PlayerParts/fist.png'),{relPivotPoint={15,8}, bonePicAngle=-52*math.pi/180, bone=player.bones.fistBone})
+	
+	player.bonePics.headPic = bonePicture.make(love.graphics.newImage('Art/PlayerParts/head.png'),{relPivotPoint={70,184},bonePicAngle=math.pi/2,bone=player.bones.headBone})
+	player.bonePics.forearmPic = bonePicture.make(love.graphics.newImage('Art/PlayerParts/forearm.png'),{relPivotPoint={20,13},bonePicAngle=-61.8/180*math.pi,bone=player.bones.forearmBone})
+	player.bonePics.backarmPic = bonePicture.make(love.graphics.newImage('Art/PlayerParts/backarm.png'),{relPivotPoint={20,15},bonePicAngle=-88/180*math.pi,bone=player.bones.backarmBone})
+	
+	player.bonePics.backforearmPic = bonePicture.make(love.graphics.newImage('Art/PlayerParts/back forearm.png'),{relPivotPoint={20,13},bonePicAngle=-61.8/180*math.pi,bone=player.bones.backforearmBone,color={160,160,160}})
+	
+	player.bonePics.backbackarmPic = bonePicture.make(love.graphics.newImage('Art/PlayerParts/back backarm.png'),{relPivotPoint={20,15},bonePicAngle=-88/180*math.pi,bone=player.bones.backbackarmBone,color={160,160,160}})
+	
+	player.bonePics.swordPic = bonePicture.make(love.graphics.newImage('Art/PlayerParts/sword.png'),{relPivotPoint={100,494},bonePicAngle=math.pi/2,bone=player.bones.swordBone,drawheight=200,scale=true})
+	
+	player.bonePics.wheelPic = bonePicture.make(love.graphics.newImage('Art/PlayerParts/wheel.png'),{relPivotPoint={67,67}, bone=player.bones.wheelBone})
+	
+	
+	player.body = body.make{loneBones={player.bones.wheelAttachmentBone}
+																	,bonePics={
+																		player.bonePics.backbackarmPic
+																		,player.bonePics.backforearmPic
+																		,player.bonePics.torsoPic
+																		,player.bonePics.wheelPic
+																		,player.bonePics.headPic
+																		,player.bonePics.swordPic
+																		,player.bonePics.backarmPic
+																		,player.bonePics.forearmPic
+																		,player.bonePics.fistPic
+																	}
+																	,x=225
+																	,y=235
+																	,adamp=1
+																	,airdamping=1}
+	player.body:setScale(player.width/45,player.height/140)
+
+
+	walkSpeed = 1
+	
+	local t = 0.8
+	player.keyFrames = {
+		backarmBone={bodyRelAngle={60,93,60},time={t,t},bounce=true}
+		,forearmBone={relAngle={-50,-10,-50},time={t,t}, bounce=true}
+		,backbackarmBone={bodyRelAngle={93,60,93},time={t,t},bounce=true}
+		,backforearmBone={relAngle={-10,-50,-10},time={t,t}, bounce=true}
+		,wheelBone={relAngle={0,360},loop=true,time={3} }
+	 }
+	
+	playerfunctions.setupAnimation()
+	
+	--shrinkAnim = animation.make(0.7,1.5,1,false,true)
+
+
+end
+
+function playerfunctions.setupAnimation()
+	player.bodyAnimations = {}
+	for i,bodypart in pairs(player.keyFrames) do
+		player.bodyAnimations[i] = {}
+		for valuename,b in pairs(bodypart) do
+			if valuename ~= 'time' and valuename ~= 'bounce' and valuename~= 'loop' then
+				player.bodyAnimations[i][valuename] = {}
+				local n = 1
+				while n < #b do
+					if b[n] and b[n+1] then
+						player.bodyAnimations[i][valuename][n] = animation.make(b[n]/180*math.pi,b[n+1]/180*math.pi,bodypart.time[n],bodypart.loop)
+					end
+					n = n+1
+				end
+			end
+		end
+	end
+end
+
+function playerfunctions.setupSpecificBoneAnimation(boneName, infoTable)
+	player.bodyAnimations[boneName] = {}
+	for valuename,b in pairs(infoTable) do
+		if valuename ~= 'time' and valuename ~= 'bounce' then
+			player.bodyAnimations[boneName][valuename] = {}
+			local n = 1
+			while n < #b do
+				if b[n] and b[n+1] then
+					player.bodyAnimations[boneName][valuename][n] = animation.make(b[n]/180*math.pi,b[n+1]/180*math.pi,infoTable.time[n],false)
+				end
+				n = n+1
+			end
+		end
+	end
+end
+
+function playerfunctions.updateAnimation(dt)
+	for bodypartname,v in pairs(player.bodyAnimations) do
+		for valuename,animationlist in pairs(v) do
+			if animationlist[1] then
+				animationlist[1]:update(dt)
+				if valuename == 'bodyRelAngle' then
+					player.bones[bodypartname]:setBodyRelAngle(animationlist[1].value)
+				else
+					player.bones[bodypartname][valuename] = animationlist[1].value
+				end
+				if animationlist[1].numloops > 0 and not animationlist[1].loop then
+					table.remove(animationlist,1)
+					if #animationlist == 0 and player.keyFrames[bodypartname].bounce then
+						playerfunctions.setupSpecificBoneAnimation(bodypartname,player.keyFrames[bodypartname])
+					end
+				end
+			end
+		end
+	end
+	
+	--print('\n\n\n')
 end
 
 
@@ -534,6 +667,15 @@ function playerfunctions.update(dt)
 		player.xspeed = player.xspeed + player.defaultxspeed
 	end -- if player.hp > 0
 	
+	player.body.x = player.x
+	player.body.y = player.y
+	--player.body:setScale(player.width/45,player.height/140)
+	player.body:setScale(1,1)
+	player.body:scale(player.drawwidth/playerimages.picwidth,player.drawheight/playerimages.picheight)
+	
+	playerfunctions.updateAnimation(dt*math.abs(player.xspeed)/player.speed)
+
+	player.body:update(dt)
 	
 	if player.curanim.type then
 		player.curanim.delay = player.curanim.delay + dt
@@ -619,6 +761,15 @@ end
 
 
 function playerfunctions.draw()
+
+	if true then
+		love.graphics.setColor(0,0,0)
+		love.graphics.setLineWidth(14*player.body.xscale)
+		love.graphics.line(player.bones.spineBone.startPoint[1],player.bones.spineBone.startPoint[2],player.bones.spineBone.endPoint[1],player.bones.spineBone.endPoint[2])
+	
+		player.body:draw(false,false)
+		return 
+	end
 
 	if player.curanim.type then
 		love.graphics.draw(player.animationd[player.curanim.type][player.curanim.frame], player.x-player.drawwidth/2, player.y-player.drawheight/2,0 ,player.drawwidth/player.picwidth, player.drawheight/player.picheight)

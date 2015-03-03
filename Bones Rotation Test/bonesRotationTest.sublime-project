@@ -1,0 +1,46 @@
+{
+	"build_systems":
+	[
+		{
+			"cmd":
+			[
+				"C:\\Program Files (x86)\\LOVE\\love.exe",
+				"$project_path"
+			],
+			"name": "Windows Love2d 8.0"
+		},
+		{
+			"cmd":
+			[
+				"love",
+				"$project_path"
+			],
+			"name": "Windows Love2d 9.0",
+			"shell": true
+		},
+		{
+			"cmd":
+			[
+				"love",
+				"$project_path"
+			],
+			"name": "Linux Love2d 9.0",
+			"shell": false
+		}
+	],
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"*.lua~"
+			],
+			"file_include_patterns":
+			[
+				"*.lua"
+			],
+			"path": "/home/grant/scm/AdventuresEC2/Bones Rotation Test"
+		}
+	]
+}
+

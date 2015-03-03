@@ -72,15 +72,39 @@
 	"buffers":
 	[
 		{
-			"file": "game/Enemies/wizard.lua",
+			"file": "lib/physics/bone.lua",
 			"settings":
 			{
-				"buffer_size": 6823,
+				"buffer_size": 15402,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "game/player.lua",
+			"settings":
+			{
+				"buffer_size": 37216,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "game/save.lua",
+			"settings":
+			{
+				"buffer_size": 2347,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lib/utilities/tableUtilities.lua",
+			"settings":
+			{
+				"buffer_size": 6948,
+				"line_ending": "Windows"
 			}
 		}
 	],
-	"build_system": "Windows Love2d 9.0",
+	"build_system": "Linux Love2d 9.0",
 	"command_palette":
 	{
 		"height": 392.0,
@@ -104,6 +128,8 @@
 	},
 	"file_history":
 	[
+		"/home/grant/scm/AdventuresEC2/Adventures/Adventures Project.sublime-project",
+		"/home/grant/scm/AdventuresEC2/Adventures/game/Enemies/wizard.lua",
 		"/C/Users/Grant/scm/AdventuresKiln/Adventures/Adventures Project.sublime-project",
 		"/home/grant/scm/AdventuresKiln/Adventures/game/upgrade.lua",
 		"/home/grant/scm/AdventuresKiln/Adventures/lib/utilities/tableUtilities.lua",
@@ -235,6 +261,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"love.graphics.newImage('",
+			"bones",
 			"tiledraw",
 			"getPulsingColors",
 			"getpulsingcolors",
@@ -360,9 +388,7 @@
 			"gravity",
 			"wateragility",
 			"player.inwaterheight",
-			"player x",
-			"info",
-			"getWorldScreenRect"
+			"player x"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -370,6 +396,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"love.graphics.newImage('Art/PlayerParts/",
+			"player.bones",
 			"colors.getPulsingColors",
 			"love.timer.getTime()",
 			"self",
@@ -411,18 +439,18 @@
 			[
 				{
 					"buffer": 0,
-					"file": "game/Enemies/wizard.lua",
+					"file": "lib/physics/bone.lua",
 					"settings":
 					{
-						"buffer_size": 6823,
+						"buffer_size": 15402,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								469,
-								469
+								12454,
+								12454
 							]
 						],
 						"settings":
@@ -431,7 +459,88 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 19.0,
+						"translation.y": 6790.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "game/player.lua",
+					"settings":
+					{
+						"buffer_size": 37216,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11105,
+								11105
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 150.0,
+						"translation.y": 5119.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "game/save.lua",
+					"settings":
+					{
+						"buffer_size": 2347,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								277,
+								277
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 57.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "lib/utilities/tableUtilities.lua",
+					"settings":
+					{
+						"buffer_size": 6948,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 399.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -472,7 +581,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 254.0
+		"height": 204.0
 	},
 	"replace":
 	{

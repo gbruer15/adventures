@@ -86,17 +86,6 @@
 				"buffer_size": 8528,
 				"line_ending": "Unix"
 			}
-		},
-		{
-			"contents": "{\n	\"build_systems\":\n	[\n		{\n			\"cmd\":\n			[\n				\"C:\\\\Program Files (x86)\\\\LOVE\\\\love.exe\",\n				\"$project_path\"\n			],\n			\"name\": \"Windows Love2d 8.0\"\n		},\n		{\n			\"cmd\":\n			[\n				\"love\",\n				\"$project_path\"\n			],\n			\"name\": \"Windows Love2d 9.0\",\n			\"shell\": true\n		},\n		{\n			\"cmd\":\n			[\n				\"love\",\n				\"$project_path\"\n			],\n			\"name\": \"Linux Love2d 9.0\",\n			\"shell\": false\n		}\n	],\n	\"folders\":\n	[\n		{\n			\"file_exclude_patterns\":\n			[\n				\"*.lua~\"\n			],\n			\"file_include_patterns\":\n			[\n				\"*.lua\"\n			],\n			\"path\": \"/home/grant/scm/AdventuresEC2/Bones Walking\"\n		},\n		{\n			\"path\": \"/home/grant/scm/AdventuresEC2/Bones Rotation Test\"\n		}\n	]\n}\n",
-			"file": "bonesWalking.sublime-project",
-			"file_size": 638,
-			"file_write_time": 1425393066000000,
-			"settings":
-			{
-				"buffer_size": 638,
-				"line_ending": "Unix"
-			}
 		}
 	],
 	"build_system": "Linux Love2d 9.0",
@@ -428,7 +417,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -484,33 +473,6 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 2565.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "bonesWalking.sublime-project",
-					"settings":
-					{
-						"buffer_size": 638,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								182,
-								182
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

@@ -75,7 +75,7 @@
 			"file": "bonesRotationTest.sublime-project",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 573,
 				"line_ending": "Unix"
 			}
 		},
@@ -83,7 +83,15 @@
 			"file": "main.lua",
 			"settings":
 			{
-				"buffer_size": 7819,
+				"buffer_size": 7818,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bone.lua",
+			"settings":
+			{
+				"buffer_size": 15404,
 				"line_ending": "Unix"
 			}
 		}
@@ -425,7 +433,7 @@
 					"file": "bonesRotationTest.sublime-project",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 573,
 						"regions":
 						{
 						},
@@ -438,7 +446,8 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 570.0,
@@ -451,15 +460,15 @@
 					"file": "main.lua",
 					"settings":
 					{
-						"buffer_size": 7819,
+						"buffer_size": 7818,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5775,
-								5775
+								5428,
+								5428
 							]
 						],
 						"settings":
@@ -467,7 +476,34 @@
 							"syntax": "Packages/Lua/Lua.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2109.0,
+						"translation.y": 228.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "bone.lua",
+					"settings":
+					{
+						"buffer_size": 15404,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12251,
+								12251
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4161.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
