@@ -15,8 +15,8 @@
 				"love",
 				"$project_path"
 			],
-			"shell": true,
-			"name": "Windows Love2d 9.0"
+			"name": "Windows Love2d 9.0",
+			"shell": true
 		},
 		{
 			"cmd":
@@ -24,28 +24,25 @@
 				"love",
 				"$project_path"
 			],
-			"shell": false,
-			"name": "Linux Love2d 9.0"
+			"name": "Linux Love2d 9.0",
+			"shell": false
 		}
 	],
 	"folders":
 	[
 		{
-			"path": "/home/grant/scm/AdventuresEC2/Bones Walking"
-			,"file_include_patterns":
+			"file_exclude_patterns":
+			[
+				"*.lua~"
+			],
+			"file_include_patterns":
 			[
 				"*.lua"
-				//"*.lua~"
-			]
-			,"folder_include_patterns":
-			[
-				//"lib"
-				//,"lib/Enemies"
-			]
-			,"file_exclude_patterns":[
-				"*.lua~"
-			]
-
+			],
+			"path": "/home/grant/scm/AdventuresEC2/Bones Walking"
+		},
+		{
+			"path": "/home/grant/scm/AdventuresEC2/Bones Rotation Test"
 		}
 	]
 }

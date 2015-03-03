@@ -124,7 +124,7 @@ function love.draw()
 	love.graphics.setLineWidth(14)
 	love.graphics.line(spineBone.startPoint[1],spineBone.startPoint[2],spineBone.endPoint[1],spineBone.endPoint[2])
 	
-	theBody:draw(false)
+	theBody:draw(true)
 	
 	
 	love.graphics.setColor(255,255,255)
