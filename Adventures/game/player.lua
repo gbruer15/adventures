@@ -676,7 +676,7 @@ function playerfunctions.update(dt)
 	player.body:setScale(1,1)
 	player.body:scale(player.drawwidth/playerimages.picwidth,player.drawheight/playerimages.picheight)
 	
-	playerfunctions.updateAnimation(dt*math.abs(player.xspeed)/player.speed)
+	--playerfunctions.updateAnimation(dt*math.abs(player.xspeed)/player.speed)
 	if player.onground then
 		player.bones.wheelBone.aspeed = player.xspeed/player.bones.wheelBone.length
 	end
@@ -767,7 +767,7 @@ end
 
 
 function playerfunctions.draw()
-
+	love.graphics.print("forearm Angle " .. player.bones.forearmBone.relAngle,0,0)
 	if true then
 		love.graphics.setColor(0,0,0)
 		love.graphics.setLineWidth(14*player.body.xscale)
@@ -949,6 +949,10 @@ end
 function playerfunctions.changeDirection()
 	player.armAngle = -player.armAngle
 	player.wheelOffsetX = -player.wheelOffsetX
+
+	--player.bones.forearmBone.relAngle = -player.bones.forearmBone.relAngle
+	--player.bones.backforearmBone.relAngle = -player.bones.backforearmBone.relAngle
+
 end
 
 function playerfunctions.drawWheel(scale)

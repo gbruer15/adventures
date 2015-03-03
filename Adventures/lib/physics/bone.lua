@@ -113,6 +113,11 @@ function bone:setEndPoint(x,y)
 	self.length = math.sqrt((self.startPoint[2]-self.endPoint[2])^2+(self.startPoint[1]-self.endPoint[1])^2)
 end
 
+function bone:setRelAngle()
+	self.absAngle = self.absAngle
+	-- This is not done yet--
+end
+
 function bone:setParent(parentBone)
 	if self.parent then		
 		for i,v in ipairs(self.parent.children) do
