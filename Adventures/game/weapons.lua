@@ -410,7 +410,7 @@ function weapons.bow:update(dt)
 		if self.stringPoints[3] ~= 0 then
 			self.stringSpeed = self.stringSpeed - 1000*self.stringPoints[3]*dt - 25*self.stringSpeed*dt --spring force minus damping force
 			self.stringPoints[3] = self.stringPoints[3] + self.stringSpeed*dt
-			print(self.stringPoints[3])
+			--print(self.stringPoints[3])
 			if math.abs(self.stringPoints[3])<0.001 then
 				self.stringPoints[3] = 0
 			end
@@ -766,3 +766,35 @@ function weapons.arrow:calculatePoints(angle)
 	self.drawx = self.tipx - math.cos(weapons.arrow.angle + self.angle)*mag
 	self.drawy = self.tipy - math.sin(weapons.arrow.angle + self.angle)*mag
 end
+
+
+
+weapons.none = {}
+weapons.none.__index = weapons.none
+
+function weapons.none.make()
+	local self = {}
+	setmetatable(self,weapons.none)
+	self.metatable = 'weapons.none'
+	
+	self.type = "none"
+	self.state = 'ready'
+	
+	return self
+end
+
+function weapons.none:update(dt)
+	if self.state == 'ready' then
+		
+	end
+	
+end
+
+function weapons.none:draw()
+	
+end
+
+function weapons.none:mousepressed(x,y,button)
+	
+end
+

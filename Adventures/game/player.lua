@@ -236,9 +236,13 @@ function playerfunctions.make(name)
 	player.curanim.type = false
 	player.curanim.delay = 0
 	
-	player.weapons = {bow = weapons.bow.make(50),sword = weapons.sword.make()}
+	player.weapons = {
+					bow = weapons.bow.make(50)
+					,sword = weapons.sword.make()
+					,none = weapons.none.make()
+				}
 	player.arrows = {}
-	player.equippedWeapon = 'bow'
+	player.equippedWeapon = 'none'
 	
 	return player
 end
@@ -256,7 +260,7 @@ function playerfunctions.makeBody()
 	
 	player.bones.swordBone = bone.make{id='sword',parent=player.bones.fistBone, length=100, relAngle=-math.pi/2,adamp=4}
 	player.bones.wheelAttachmentBone = bone.make{id='wheelattach',startPoint={225,342},length=120,absAngle=math.pi/2}
-	player.bones.wheelBone = bone.make{id='wheel',parent=player.bones.wheelAttachmentBone,length=67,relAngle=-math.pi/2,adamp=10}
+	player.bones.wheelBone = bone.make{id='wheel',parent=player.bones.wheelAttachmentBone,length=67,relAngle=-math.pi/2,adamp=1}
 	
 	player.bones.spineBone = bone.make{id='spine',startPoint={225,492},length=259,absAngle=-math.pi/2,adamp=4, children={player.bones.backarmBone,player.bones.backbackarmBone,player.bones.headBone}, noConnection=true,lowerConstraint=-math.pi/2-20/180*math.pi,upperConstraint=-math.pi/2+30/180*math.pi}
 	
@@ -305,7 +309,6 @@ function playerfunctions.makeBody()
 		,forearmBone={relAngle={-50,-10,-50},time={t,t}, bounce=true}
 		,backbackarmBone={bodyRelAngle={93,60,93},time={t,t},bounce=true}
 		,backforearmBone={relAngle={-10,-50,-10},time={t,t}, bounce=true}
-		,wheelBone={relAngle={0,360},loop=true,time={3} }
 	 }
 	
 	playerfunctions.setupAnimation()
@@ -674,6 +677,9 @@ function playerfunctions.update(dt)
 	player.body:scale(player.drawwidth/playerimages.picwidth,player.drawheight/playerimages.picheight)
 	
 	playerfunctions.updateAnimation(dt*math.abs(player.xspeed)/player.speed)
+	if player.onground then
+		player.bones.wheelBone.aspeed = player.xspeed/player.bones.wheelBone.length
+	end
 
 	player.body:update(dt)
 	
