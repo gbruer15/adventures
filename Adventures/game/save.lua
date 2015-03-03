@@ -13,7 +13,7 @@ function savegame(savefile)
 	end
 	local basename = "Save " .. savefile .. "/file " .. savefile .. " "
 
-	local ignoredKeys = {'bones', 'bonePics', 'body'}
+	local ignoredKeys = {'bones', 'bonePics', 'body', 'keyFrames', 'bodyAnimations'}
 
 	love.filesystem.write(basename .. 'player.lua', 'return ' .. tableUtilities.tabletostring(player,true,ignoredKeys))
 

@@ -431,7 +431,7 @@ function body:setScale(xscale,yscale)
 		b.pivotPointPicR = math.sqrt(b.relPivotPoint[2]^2+b.relPivotPoint[1]^2)
 	end
 	
-	self.xscale,self.yscale = xscale*self.xscale,yscale*self.xscale
+	self.xscale,self.yscale = xscale*self.xscale,yscale*self.yscale
 	self:update(0)
 end
 
@@ -456,6 +456,6 @@ function body:scale(xscale,yscale)
 		b.pivotPointPicR = math.sqrt(b.relPivotPoint[2]^2+b.relPivotPoint[1]^2)
 	end
 	
-	self.xscale,self.yscale = xscale*self.xscale,yscale*self.xscale
+	self.xscale,self.yscale = xscale*self.xscale,yscale*self.yscale
 	self:update(0)
 end

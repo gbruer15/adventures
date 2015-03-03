@@ -291,11 +291,49 @@ function playerfunctions.makeBody()
 																		,player.bonePics.fistPic
 																	}
 																	,x=225
-																	,y=320
+																	,y=235
 																	,adamp=1
 																	,airdamping=1}
-	player.body:setScale(38/45,119/140)
+	player.body:setScale(player.width/45,player.height/140)
+
+
+	walkSpeed = 1
+	
+	local t = 0.8
+	player.keyFrames = {
+		player.bones.backarmBone={bodyRelAngle={60,93,60},time={t,t},bounce=true}
+		,player.bones.forearmBone={relAngle={-50,-10,-50},time={t,t}, bounce=true}
+		,player.bones.backbackarmBone={bodyRelAngle={93,60,93},time={t,t},bounce=true}
+		,player.bones.backforearmBone={relAngle={-10,-50,-10},time={t,t}, bounce=true}
+		,player.bones.wheelBone={relAngle={0,360},loop=true,time={3}}
+	 }
+	
+	playerfunctions.setupAnimation()
+	
+	shrinkAnim = animation.make(0.7,1.5,1,false,true)
+
+
 end
+
+function playerfunctions.setupAnimation()
+	player.bodyAnimations = {}
+	for i,bodypart in pairs(player.keyFrames) do
+		player.bodyAnimations[i] = {}
+		for valuename,b in pairs(bodypart) do
+			if valuename ~= 'time' and valuename ~= 'bounce' and valuename~= 'loop' then
+				player.bodyAnimations[i][valuename] = {}
+				local n = 1
+				while n < #b do
+					if b[n] and b[n+1] then
+						player.bodyAnimations[i][valuename][n] = animation.make(b[n]/180*math.pi,b[n+1]/180*math.pi,bodypart.time[n],bodypart.loop)
+					end
+					n = n+1
+				end
+			end
+		end
+	end
+end
+
 
 function playerfunctions.update(dt)
 	for i,b in ipairs(player.arrows) do
@@ -590,6 +628,13 @@ function playerfunctions.update(dt)
 		player.xspeed = player.xspeed + player.defaultxspeed
 	end -- if player.hp > 0
 	
+	player.body.x = player.x
+	player.body.y = player.y
+	--player.body:setScale(player.width/45,player.height/140)
+	player.body:setScale(1,1)
+	player.body:scale(player.drawwidth/playerimages.picwidth,player.drawheight/playerimages.picheight)
+	
+	player.body:update(dt)
 	
 	if player.curanim.type then
 		player.curanim.delay = player.curanim.delay + dt
@@ -677,7 +722,7 @@ end
 function playerfunctions.draw()
 
 	if true then
-		player.body:draw(true,true)
+		player.body:draw(false,false)
 		return 
 	end
 
