@@ -31,7 +31,7 @@
 	"folders":
 	[
 		{
-			"path": "C:\\Users\\Grant\\scm\\AdventuresKiln\\Adventures"
+			"path": "C:\\Users\\Grant\\scm\\AdventuresEC2\\Adventures"
 			,"file_include_patterns":
 			[
 				"*.lua"
@@ -54,7 +54,7 @@
 			]
 		}
 		,{
-			"path": "/home/grant/scm/AdventuresKiln/Adventures"
+			"path": "/home/grant/scm/AdventuresEC2/Adventures"
 			,"file_include_patterns":
 			[
 				"*.lua"
