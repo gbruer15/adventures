@@ -489,7 +489,7 @@ function body:scale(xscale,yscale)
 	self:update(0)
 end
 
-function body:flipXY()
+function body:flipXY() --this probably just rotates it 180 degrees, not flipping it
 	for i,b in ipairs(self.structuralBones) do
 		b:setStartPoint(self.x-(b.startPoint[1]-self.x),self.y-(b.startPoint[2]-self.y))
 		b:setEndPoint(self.x-(b.endPoint[1]-self.x),self.y-(b.endPoint[2]-self.y))
@@ -557,6 +557,6 @@ function body:flipY() --A little buggy, but I didn't mean to write it anyway (I 
 end
 
 function body:flipX()
-	self:flipXY()
+	--self:flipXY()
 	self:flipY()
 end

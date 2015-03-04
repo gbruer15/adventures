@@ -4,8 +4,8 @@
 		"selected_items":
 		[
 			[
-				"self",
-				"self"
+				"end",
+				"end"
 			],
 			[
 				"requi",
@@ -14,6 +14,10 @@
 			[
 				"get",
 				"getPosition"
+			],
+			[
+				"self",
+				"self"
 			],
 			[
 				"sold",
@@ -75,7 +79,7 @@
 			"file": "lib/physics/bone.lua",
 			"settings":
 			{
-				"buffer_size": 19768,
+				"buffer_size": 19831,
 				"line_ending": "Unix"
 			}
 		},
@@ -88,23 +92,15 @@
 			}
 		},
 		{
-			"file": "game/save.lua",
+			"file": "game/weapons.lua",
 			"settings":
 			{
-				"buffer_size": 2378,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "lib/utilities/tableUtilities.lua",
-			"settings":
-			{
-				"buffer_size": 6948,
-				"line_ending": "Windows"
+				"buffer_size": 24239,
+				"line_ending": "Unix"
 			}
 		}
 	],
-	"build_system": "Windows Love2d 9.0",
+	"build_system": "Linux Love2d 9.0",
 	"command_palette":
 	{
 		"height": 392.0,
@@ -128,6 +124,9 @@
 	},
 	"file_history":
 	[
+		"/home/grant/scm/AdventuresEC2/Adventures/lib/utilities/tableUtilities.lua",
+		"/home/grant/scm/AdventuresEC2/Adventures/game/save.lua",
+		"/home/grant/scm/AdventuresKiln/Adventures/main.lua",
 		"/home/grant/scm/AdventuresEC2/Adventures/Adventures Project.sublime-project",
 		"/home/grant/scm/AdventuresEC2/Adventures/game/Enemies/wizard.lua",
 		"/C/Users/Grant/scm/AdventuresKiln/Adventures/Adventures Project.sublime-project",
@@ -143,7 +142,6 @@
 		"/home/grant/scm/AdventuresKiln/Adventures/lib/states.lua~",
 		"/home/grant/scm/AdventuresKiln/Adventures/game/Enemies/monkey.lua",
 		"/home/grant/scm/AdventuresKiln/Adventures/game/shop.lua",
-		"/home/grant/scm/AdventuresKiln/Adventures/main.lua",
 		"/home/grant/scm/AdventuresKiln/Adventures/lib/display/loveGraphicsOverride.lua",
 		"/home/grant/scm/AdventuresKiln/Adventures/LevelEditor/main.lua",
 		"/home/grant/scm/AdventuresKiln/Adventures/lib/display/tabbedDisplay.lua",
@@ -261,12 +259,22 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"math.pi",
-			"scale",
-			"setscale",
-			"forearmBone",
-			"setrel",
+			"constraint",
+			"playerfunctions.updateAnimat",
+			"player.updateAnimat",
+			"playerfunctions.update",
+			"player.updateAnim",
+			"player.bones.forearm",
+			"updateanima",
+			"animation",
+			"player.bones",
+			"forearm",
+			"forearmbone",
 			"change",
+			"scale",
+			"wheelRadius",
+			"print",
+			"player.equippedWeapon",
 			"love.graphics.newImage('",
 			"bones",
 			"tiledraw",
@@ -378,17 +386,7 @@
 			"grassydirt",
 			"stonebrick",
 			"door",
-			"level.stuff",
-			"watercolor",
-			"player.inlevel",
-			"player.door",
-			"\")\n",
-			"player.inwater",
-			"\"w\"",
-			"'w'",
-			"levelup",
-			"levelupxps = ",
-			"levelup"
+			"level.stuff"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -442,25 +440,24 @@
 					"file": "lib/physics/bone.lua",
 					"settings":
 					{
-						"buffer_size": 19768,
+						"buffer_size": 19831,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								19463,
-								19463
+								16497,
+								16497
 							]
 						],
 						"settings":
 						{
-							"spell_check": true,
 							"syntax": "Packages/Lua/Lua.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6716.0,
+						"translation.y": 8949.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -477,8 +474,8 @@
 						"selection":
 						[
 							[
-								23440,
-								23440
+								36162,
+								36162
 							]
 						],
 						"settings":
@@ -487,25 +484,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 19773.0,
+						"translation.y": 15218.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "game/save.lua",
+					"file": "game/weapons.lua",
 					"settings":
 					{
-						"buffer_size": 2378,
+						"buffer_size": 24239,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								13470,
+								13470
 							]
 						],
 						"settings":
@@ -514,34 +511,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 57.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "lib/utilities/tableUtilities.lua",
-					"settings":
-					{
-						"buffer_size": 6948,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 399.0,
+						"translation.y": 6497.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -582,7 +552,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 212.0
+		"height": 204.0
 	},
 	"replace":
 	{
