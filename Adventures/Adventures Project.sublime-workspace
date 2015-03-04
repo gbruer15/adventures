@@ -4,16 +4,16 @@
 		"selected_items":
 		[
 			[
+				"self",
+				"self"
+			],
+			[
 				"requi",
 				"requireDirectory"
 			],
 			[
 				"get",
 				"getPosition"
-			],
-			[
-				"self",
-				"self"
 			],
 			[
 				"sold",
@@ -75,7 +75,7 @@
 			"file": "lib/physics/bone.lua",
 			"settings":
 			{
-				"buffer_size": 15402,
+				"buffer_size": 19768,
 				"line_ending": "Unix"
 			}
 		},
@@ -83,7 +83,7 @@
 			"file": "game/player.lua",
 			"settings":
 			{
-				"buffer_size": 37216,
+				"buffer_size": 41299,
 				"line_ending": "Unix"
 			}
 		},
@@ -91,7 +91,7 @@
 			"file": "game/save.lua",
 			"settings":
 			{
-				"buffer_size": 2347,
+				"buffer_size": 2378,
 				"line_ending": "Windows"
 			}
 		},
@@ -104,7 +104,7 @@
 			}
 		}
 	],
-	"build_system": "Linux Love2d 9.0",
+	"build_system": "Windows Love2d 9.0",
 	"command_palette":
 	{
 		"height": 392.0,
@@ -261,6 +261,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"math.pi",
+			"scale",
+			"setscale",
+			"forearmBone",
+			"setrel",
+			"change",
 			"love.graphics.newImage('",
 			"bones",
 			"tiledraw",
@@ -382,13 +388,7 @@
 			"'w'",
 			"levelup",
 			"levelupxps = ",
-			"levelup",
-			"player.actual",
-			"inwater",
-			"gravity",
-			"wateragility",
-			"player.inwaterheight",
-			"player x"
+			"levelup"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -442,24 +442,25 @@
 					"file": "lib/physics/bone.lua",
 					"settings":
 					{
-						"buffer_size": 15402,
+						"buffer_size": 19768,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12454,
-								12454
+								19463,
+								19463
 							]
 						],
 						"settings":
 						{
+							"spell_check": true,
 							"syntax": "Packages/Lua/Lua.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6790.0,
+						"translation.y": 6716.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -469,15 +470,15 @@
 					"file": "game/player.lua",
 					"settings":
 					{
-						"buffer_size": 37216,
+						"buffer_size": 41299,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11105,
-								11105
+								23440,
+								23440
 							]
 						],
 						"settings":
@@ -485,8 +486,8 @@
 							"syntax": "Packages/Lua/Lua.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 150.0,
-						"translation.y": 5119.0,
+						"translation.x": 0.0,
+						"translation.y": 19773.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -496,15 +497,15 @@
 					"file": "game/save.lua",
 					"settings":
 					{
-						"buffer_size": 2347,
+						"buffer_size": 2378,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								277,
-								277
+								0,
+								0
 							]
 						],
 						"settings":
@@ -581,7 +582,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 204.0
+		"height": 212.0
 	},
 	"replace":
 	{

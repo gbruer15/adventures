@@ -613,6 +613,14 @@ function playerfunctions.update(dt)
 					player.facing = 'right'
 				end
 			end
+		elseif player.equippedWeapon == 'none' then
+			if true then
+				if player.lastmoving == 'a'  then
+					player.facing = 'left'
+				else
+					player.facing = 'right'
+				end
+			end
 		end
 		
 		if player.facing ~= lastFacing then
@@ -674,6 +682,7 @@ function playerfunctions.update(dt)
 	player.body.y = player.y
 	--player.body:setScale(player.width/45,player.height/140)
 	player.body:setScale(1,1)
+
 	player.body:scale(player.drawwidth/playerimages.picwidth,player.drawheight/playerimages.picheight)
 	
 	--playerfunctions.updateAnimation(dt*math.abs(player.xspeed)/player.speed)
@@ -767,13 +776,17 @@ end
 
 
 function playerfunctions.draw()
-	love.graphics.print("forearm Angle " .. player.bones.forearmBone.relAngle,0,0)
+	love.graphics.setFont(impactfont[20])
+	love.graphics.setColor(0,0,0)
+	love.graphics.print("backarm Angle: " .. player.bones.backarmBone.relAngle,0,0)
+	love.graphics.print("backarm lower: " .. player.bones.backarmBone.lowerConstraint,0,25)
+	love.graphics.print("backarm upper: " .. player.bones.backarmBone.upperConstraint,0,50)
 	if true then
 		love.graphics.setColor(0,0,0)
 		love.graphics.setLineWidth(14*player.body.xscale)
 		love.graphics.line(player.bones.spineBone.startPoint[1],player.bones.spineBone.startPoint[2],player.bones.spineBone.endPoint[1],player.bones.spineBone.endPoint[2])
 	
-		player.body:draw(false,false)
+		player.body:draw(true,false)
 		return 
 	end
 
@@ -947,11 +960,19 @@ function playerfunctions.drawArm(width,height,scale)
 end
 
 function playerfunctions.changeDirection()
-	player.armAngle = -player.armAngle
-	player.wheelOffsetX = -player.wheelOffsetX
+	--player.armAngle = -player.armAngle
+	--player.wheelOffsetX = -player.wheelOffsetX
+--[[
+	player.bones.backarmBone.upperConstraint,player.bones.backarmBone.lowerConstraint = -player.bones.backarmBone.lowerConstraint,-player.bones.backarmBone.upperConstraint
+	player.bones.backbackarmBone.upperConstraint,player.bones.backbackarmBone.lowerConstraint = -player.bones.backbackarmBone.lowerConstraint,-player.bones.backbackarmBone.upperConstraint
 
-	--player.bones.forearmBone.relAngle = -player.bones.forearmBone.relAngle
-	--player.bones.backforearmBone.relAngle = -player.bones.backforearmBone.relAngle
+	print("change\n")
+	player.bones.backarmBone:setRelAngle(-player.bones.backarmBone.relAngle)
+	player.bones.backbackarmBone:setRelAngle(-player.bones.backbackarmBone.relAngle)
+
+	player.body:scale(-1,1)
+--]]
+	player.body:flipX()
 
 end
 

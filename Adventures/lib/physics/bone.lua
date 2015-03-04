@@ -113,9 +113,11 @@ function bone:setEndPoint(x,y)
 	self.length = math.sqrt((self.startPoint[2]-self.endPoint[2])^2+(self.startPoint[1]-self.endPoint[1])^2)
 end
 
-function bone:setRelAngle()
-	self.absAngle = self.absAngle
-	-- This is not done yet--
+function bone:setRelAngle(newRelAngle, changeChildren)
+	self.absAngle = self.absAngle + (newRelAngle - self.relAngle)
+
+	self.relAngle = newRelAngle
+	self:update(0)
 end
 
 function bone:setParent(parentBone)
@@ -216,6 +218,28 @@ function bone:drawChildren()
 	for i,v in ipairs(self.children) do
 		v:draw(true)
 		v:drawChildren()
+	end
+end
+
+function bone:flipXYChildren(cx,cy)
+	for i,b in ipairs(self.children) do
+		b:setStartPoint(cx-(b.startPoint[1]-cx),cy-(b.startPoint[2]-cy))
+		b:setEndPoint(cx-(b.endPoint[1]-cx),cy-(b.endPoint[2]-cy))
+		b.upperConstraint,b.lowerConstraint = b.lowerConstraint and -b.lowerConstraint, b.upperConstraint and -b.upperConstraint
+		b:setRelAngle(-b.relAngle)
+		--b:setBodyRelAngle(-b.bodyRelAngle)
+		b:flipXYChildren(cx,cy)
+	end
+end
+
+function bone:flipXChildren(cx)
+	for i,b in ipairs(self.children) do
+		b:setStartPoint(cx-(b.startPoint[1]-cx),b.startPoint[2])
+		b:setEndPoint(cx-(b.endPoint[1]-cx),b.endPoint[2])
+		b.upperConstraint,b.lowerConstraint = b.lowerConstraint and -b.lowerConstraint, b.upperConstraint and -b.upperConstraint
+		b:setRelAngle(-b.relAngle)
+		--b:setBodyRelAngle(-b.bodyRelAngle)
+		b:flipXChildren(cx)
 	end
 end
 
@@ -383,7 +407,7 @@ function body:update(dt)
 	end
 end
 
-function body:draw(drawBone,drawStructure)
+function body:draw(drawBone,drawStructure,scale)
 	
 	if drawStructure then
 		for i,b in ipairs(self.structuralBones) do
@@ -463,4 +487,76 @@ function body:scale(xscale,yscale)
 	
 	self.xscale,self.yscale = xscale*self.xscale,yscale*self.yscale
 	self:update(0)
+end
+
+function body:flipXY()
+	for i,b in ipairs(self.structuralBones) do
+		b:setStartPoint(self.x-(b.startPoint[1]-self.x),self.y-(b.startPoint[2]-self.y))
+		b:setEndPoint(self.x-(b.endPoint[1]-self.x),self.y-(b.endPoint[2]-self.y))
+		b.upperConstraint,b.lowerConstraint = b.lowerConstraint and -b.lowerConstraint, b.upperConstraint and -b.upperConstraint
+		b:setRelAngle(-b.relAngle)
+		--b:setBodyRelAngle(-b.bodyRelAngle)
+		b:flipXYChildren(self.x,self.y)
+	end
+	
+	for i,bp in ipairs(self.bonePics) do
+		--bp.bone:setStartPoint(xscale*(b.bone.startPoint[1]-self.x)/self.xscale+self.x,yscale*(b.bone.startPoint[2]-self.y)/self.yscale+self.y)
+		--bp.bone:setEndPoint(xscale*(b.bone.endPoint[1]-self.x)/self.xscale+self.x,yscale*(b.bone.endPoint[2]-self.y)/self.yscale+self.y)
+		bp.drawwidth = bp.drawwidth
+		bp.drawheight = bp.drawheight
+		local b = bp.bone
+		b:setStartPoint(self.x-(b.startPoint[1]-self.x),self.y-(b.startPoint[2]-self.y))
+		b:setEndPoint(self.x-(b.endPoint[1]-self.x),self.y-(b.endPoint[2]-self.y))
+		b.upperConstraint,b.lowerConstraint = b.lowerConstraint and -b.lowerConstraint, b.upperConstraint and -b.upperConstraint
+		b:setRelAngle(-b.relAngle)
+		
+		--b.relPivotPoint[1] = self.x-(b.relPivotPoint[1]-self.x)
+		--b.relPivotPoint[2] = self.y-(b.relPivotPoint[2]-self.y)
+		
+		--b.pivotPointPicTheta = math.atan(b.relPivotPoint[2]/b.relPivotPoint[1])
+		--b.pivotPointPicR = math.sqrt(b.relPivotPoint[2]^2+b.relPivotPoint[1]^2)
+	end
+end
+
+function body:flipY() --A little buggy, but I didn't mean to write it anyway (I was trying to write flipX)
+	for i,b in ipairs(self.structuralBones) do
+		if not b.parent then
+			b:setStartPoint(self.x-(b.startPoint[1]-self.x),b.startPoint[2])
+			b:setEndPoint(self.x-(b.endPoint[1]-self.x),b.endPoint[2])
+			b.upperConstraint,b.lowerConstraint = b.lowerConstraint and 2*math.pi-b.lowerConstraint, b.upperConstraint and 2*math.pi-b.upperConstraint
+			--b:setRelAngle(2*math.pi-b.relAngle)
+			b:setBodyRelAngle(2*math.pi-b.bodyRelAngle)
+			--b:flipXChildren(self.x)
+		else
+			b.upperConstraint,b.lowerConstraint = b.lowerConstraint and 2*math.pi-b.lowerConstraint, b.upperConstraint and 2*math.pi-b.upperConstraint
+			b:setRelAngle(2*math.pi-b.relAngle)
+			--b:setBodyRelAngle(2*math.pi-b.bodyRelAngle)
+		end
+	end
+	
+	for i,bp in ipairs(self.bonePics) do
+		--bp.bone:setStartPoint(xscale*(b.bone.startPoint[1]-self.x)/self.xscale+self.x,yscale*(b.bone.startPoint[2]-self.y)/self.yscale+self.y)
+		--bp.bone:setEndPoint(xscale*(b.bone.endPoint[1]-self.x)/self.xscale+self.x,yscale*(b.bone.endPoint[2]-self.y)/self.yscale+self.y)
+		bp.drawwidth = bp.drawwidth
+		bp.drawheight = bp.drawheight
+		local b = bp.bone
+		if not b.parent then
+			b:setStartPoint(self.x-(b.startPoint[1]-self.x),b.startPoint[2])
+			b:setEndPoint(self.x-(b.endPoint[1]-self.x),b.endPoint[2])
+			b.upperConstraint,b.lowerConstraint = b.lowerConstraint and 2*math.pi-b.lowerConstraint, b.upperConstraint and 2*math.pi-b.upperConstraint
+			
+			b:setRelAngle(2*math.pi-b.relAngle)
+			--b:setBodyRelAngle(2*math.pi-b.bodyRelAngle)
+		else
+			b.upperConstraint,b.lowerConstraint = b.lowerConstraint and 2*math.pi-b.lowerConstraint, b.upperConstraint and 2*math.pi-b.upperConstraint
+			
+			b:setRelAngle(2*math.pi-b.relAngle)
+			--b:setBodyRelAngle(2*math.pi-b.bodyRelAngle)
+		end
+	end
+end
+
+function body:flipX()
+	self:flipXY()
+	self:flipY()
 end
