@@ -328,7 +328,7 @@ function bonePicture:draw(drawBone,drawStructure,width,height,scale)
 		--But what I want is for the pivot points to be lined up.
 
 		--move picture in direction of angle of picture to line up pivot points
-		local moveAngle = angle
+		local moveAngle = self.angle
 		local moveDistance = self.relPivotPoint[1]*2
 		drawy = drawy + moveDistance*math.sin(moveAngle)
 		drawx = drawx + moveDistance*math.cos(moveAngle)
@@ -573,8 +573,8 @@ function body:flipY() --A little buggy, but I didn't mean to write it anyway (I 
 end
 
 function body:flipX()
-	self:flipXY()
-	self:flipY()
+	--self:flipXY()
+	--self:flipY()
 
 
 	--[
@@ -582,21 +582,30 @@ function body:flipX()
 		--bp.bone:setStartPoint(xscale*(b.bone.startPoint[1]-self.x)/self.xscale+self.x,yscale*(b.bone.startPoint[2]-self.y)/self.yscale+self.y)
 		--bp.bone:setEndPoint(xscale*(b.bone.endPoint[1]-self.x)/self.xscale+self.x,yscale*(b.bone.endPoint[2]-self.y)/self.yscale+self.y)
 		bp.drawwidth = -bp.drawwidth
+
+		--Actually, I can't just rely on negating the width, because some images may be drawn 
+		--with the right side down. I need to take into account the orientation of the image
+		--related to how it's being drawn.
+		--The orientation is stored in bonePicAngle. I may just need to change the move distance
+		--moved in bonePic:draw for negative drawwidth?
+
+		--[[I think this is taken care of by just moving picture in bonePic:draw
 		--bp.relPivotPoint[1] = -bp.relPivotPoint[2]
 		
 		--bp.pivotPointPicTheta = math.atan(bp.relPivotPoint[2]/bp.relPivotPoint[1])
 		--bp.pivotPointPicR = math.sqrt(bp.relPivotPoint[2]^2+bp.relPivotPoint[1]^2)
+		--]]
 
 		--bp.drawheight = bp.drawheight
 		local b = bp.bone
-		if false and not b.parent then
+		if not b.parent then
 			b:setStartPoint(self.x-(b.startPoint[1]-self.x),b.startPoint[2])
 			b:setEndPoint(self.x-(b.endPoint[1]-self.x),b.endPoint[2])
 			b.upperConstraint,b.lowerConstraint = b.lowerConstraint and 2*math.pi-b.lowerConstraint, b.upperConstraint and 2*math.pi-b.upperConstraint
 			
 			b:setRelAngle(2*math.pi-b.relAngle)
 			b:setBodyRelAngle(2*math.pi-b.bodyRelAngle)
-		elseif false then
+		else
 			b.upperConstraint,b.lowerConstraint = b.lowerConstraint and 2*math.pi-b.lowerConstraint, b.upperConstraint and 2*math.pi-b.upperConstraint
 			
 			b:setRelAngle(2*math.pi-b.relAngle)
