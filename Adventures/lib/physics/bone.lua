@@ -199,15 +199,15 @@ end
 
 function bone:draw(drawChildren)
 	love.graphics.setColor(255,255,255)
-	love.graphics.setLineWidth(2)
+	love.graphics.setLineWidth(1)
 	
 	love.graphics.line(self.startPoint[1],self.startPoint[2],self.endPoint[1],self.endPoint[2])
 	
 	love.graphics.setColor(200,200,0,200)
-	love.graphics.circle("line", self.startPoint[1],self.startPoint[2],8)
+	love.graphics.circle("line", self.startPoint[1],self.startPoint[2],4)
 	
 	love.graphics.setColor(200,0,0,200)
-	love.graphics.circle("fill", self.endPoint[1],self.endPoint[2],6)
+	love.graphics.circle("fill", self.endPoint[1],self.endPoint[2],2)
 	
 	if drawChildren and self.children then
 		self:drawChildren()
@@ -313,15 +313,25 @@ function bonePicture:draw(drawBone,drawStructure,width,height,scale)
 	
 	
 	local angle = self.angle + self.bonePicAngle
-	--[local drawx
-	local drawx
-	local drawy
-	if self.drawwidth > 0 then
-		drawy = self.y - math.sin(angle + self.pivotPointPicTheta)*self.pivotPointPicR*scale
-		drawx = self.x - math.cos(angle + self.pivotPointPicTheta)*self.pivotPointPicR*scale
-	else
-		drawy = self.y - math.sin(angle + self.pivotPointPicTheta)*self.pivotPointPicR*scale
-		drawx = self.x - math.cos(angle + self.pivotPointPicTheta)*self.pivotPointPicR*scale
+
+	local drawy = self.y - math.sin(angle + self.pivotPointPicTheta)*self.pivotPointPicR*scale
+	local drawx = self.x - math.cos(angle + self.pivotPointPicTheta)*self.pivotPointPicR*scale
+	
+	if self.drawwidth < 0 then
+		 --[[move picture in direction of angle of picture
+		local moveAngle = angle
+		local moveDistance = -self.drawwidth
+		drawy = drawy + moveDistance*math.sin(moveAngle)
+		drawx = drawx + moveDistance*math.cos(moveAngle)
+--]]
+		--the picture is now in the position where the top left corner is where the top right corner was
+		--But what I want is for the pivot points to be lined up.
+
+		--move picture in direction of angle of picture to line up pivot points
+		local moveAngle = angle
+		local moveDistance = self.relPivotPoint[1]*2
+		drawy = drawy + moveDistance*math.sin(moveAngle)
+		drawx = drawx + moveDistance*math.cos(moveAngle)
 	end
 	if not drawBone and not drawStructure then
 		love.graphics.setColor(self.color)
@@ -571,11 +581,11 @@ function body:flipX()
 	for i,bp in ipairs(self.bonePics) do
 		--bp.bone:setStartPoint(xscale*(b.bone.startPoint[1]-self.x)/self.xscale+self.x,yscale*(b.bone.startPoint[2]-self.y)/self.yscale+self.y)
 		--bp.bone:setEndPoint(xscale*(b.bone.endPoint[1]-self.x)/self.xscale+self.x,yscale*(b.bone.endPoint[2]-self.y)/self.yscale+self.y)
-		bp.drawwidth = bp.drawwidth
-		bp.relPivotPoint[1] = -bp.relPivotPoint[1]
+		bp.drawwidth = -bp.drawwidth
+		--bp.relPivotPoint[1] = -bp.relPivotPoint[2]
 		
-		bp.pivotPointPicTheta = math.atan(bp.relPivotPoint[2]/bp.relPivotPoint[1])
-		bp.pivotPointPicR = math.sqrt(bp.relPivotPoint[2]^2+bp.relPivotPoint[1]^2)
+		--bp.pivotPointPicTheta = math.atan(bp.relPivotPoint[2]/bp.relPivotPoint[1])
+		--bp.pivotPointPicR = math.sqrt(bp.relPivotPoint[2]^2+bp.relPivotPoint[1]^2)
 
 		--bp.drawheight = bp.drawheight
 		local b = bp.bone
