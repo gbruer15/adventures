@@ -264,6 +264,10 @@ function playerfunctions.makeBody()
 	
 	player.bones.spineBone = bone.make{id='spine',startPoint={225,492},length=259,absAngle=-math.pi/2,adamp=4, children={player.bones.backarmBone,player.bones.backbackarmBone,player.bones.headBone}, noConnection=true,lowerConstraint=-math.pi/2-20/180*math.pi,upperConstraint=-math.pi/2+30/180*math.pi}
 	
+	for i,b in pairs(player.bones) do
+		b.upperConstraint = false
+		b.lowerConstraint = false
+	end
 	player.bonePics = {}
 	player.bonePics.torsoPic = bonePicture.make(love.graphics.newImage('Art/PlayerParts/torso.png'),{relPivotPoint={54,326},bonePicAngle=math.pi/2, bone=player.bones.spineBone})
 	
@@ -779,14 +783,14 @@ function playerfunctions.draw()
 	love.graphics.setFont(impactfont[20])
 	love.graphics.setColor(0,0,0)
 	love.graphics.print("backarm Angle: " .. player.bones.backarmBone.relAngle,0,0)
-	love.graphics.print("backarm lower: " .. player.bones.backarmBone.lowerConstraint,0,25)
-	love.graphics.print("backarm upper: " .. player.bones.backarmBone.upperConstraint,0,50)
+	love.graphics.print("backarm lower: " .. tostring(player.bones.backarmBone.lowerConstraint),0,25)
+	love.graphics.print("backarm upper: " .. tostring(player.bones.backarmBone.upperConstraint),0,50)
 	if true then
 		love.graphics.setColor(0,0,0)
 		love.graphics.setLineWidth(14*player.body.xscale)
 		love.graphics.line(player.bones.spineBone.startPoint[1],player.bones.spineBone.startPoint[2],player.bones.spineBone.endPoint[1],player.bones.spineBone.endPoint[2])
 	
-		player.body:draw(true,false)
+		player.body:draw(false,false)
 		return 
 	end
 

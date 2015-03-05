@@ -314,9 +314,15 @@ function bonePicture:draw(drawBone,drawStructure,width,height,scale)
 	
 	local angle = self.angle + self.bonePicAngle
 	--[local drawx
-	local drawy = self.y - math.sin(angle + self.pivotPointPicTheta)*self.pivotPointPicR*scale
-	local drawx = self.x - math.cos(angle + self.pivotPointPicTheta)*self.pivotPointPicR*scale
-	
+	local drawx
+	local drawy
+	if self.drawwidth > 0 then
+		drawy = self.y - math.sin(angle + self.pivotPointPicTheta)*self.pivotPointPicR*scale
+		drawx = self.x - math.cos(angle + self.pivotPointPicTheta)*self.pivotPointPicR*scale
+	else
+		drawy = self.y - math.sin(angle + self.pivotPointPicTheta)*self.pivotPointPicR*scale
+		drawx = self.x - math.cos(angle + self.pivotPointPicTheta)*self.pivotPointPicR*scale
+	end
 	if not drawBone and not drawStructure then
 		love.graphics.setColor(self.color)
 	else
@@ -557,6 +563,35 @@ function body:flipY() --A little buggy, but I didn't mean to write it anyway (I 
 end
 
 function body:flipX()
-	--self:flipXY()
+	self:flipXY()
 	self:flipY()
+
+
+	--[
+	for i,bp in ipairs(self.bonePics) do
+		--bp.bone:setStartPoint(xscale*(b.bone.startPoint[1]-self.x)/self.xscale+self.x,yscale*(b.bone.startPoint[2]-self.y)/self.yscale+self.y)
+		--bp.bone:setEndPoint(xscale*(b.bone.endPoint[1]-self.x)/self.xscale+self.x,yscale*(b.bone.endPoint[2]-self.y)/self.yscale+self.y)
+		bp.drawwidth = bp.drawwidth
+		bp.relPivotPoint[1] = -bp.relPivotPoint[1]
+		
+		bp.pivotPointPicTheta = math.atan(bp.relPivotPoint[2]/bp.relPivotPoint[1])
+		bp.pivotPointPicR = math.sqrt(bp.relPivotPoint[2]^2+bp.relPivotPoint[1]^2)
+
+		--bp.drawheight = bp.drawheight
+		local b = bp.bone
+		if false and not b.parent then
+			b:setStartPoint(self.x-(b.startPoint[1]-self.x),b.startPoint[2])
+			b:setEndPoint(self.x-(b.endPoint[1]-self.x),b.endPoint[2])
+			b.upperConstraint,b.lowerConstraint = b.lowerConstraint and 2*math.pi-b.lowerConstraint, b.upperConstraint and 2*math.pi-b.upperConstraint
+			
+			b:setRelAngle(2*math.pi-b.relAngle)
+			b:setBodyRelAngle(2*math.pi-b.bodyRelAngle)
+		elseif false then
+			b.upperConstraint,b.lowerConstraint = b.lowerConstraint and 2*math.pi-b.lowerConstraint, b.upperConstraint and 2*math.pi-b.upperConstraint
+			
+			b:setRelAngle(2*math.pi-b.relAngle)
+			--b:setBodyRelAngle(2*math.pi-b.bodyRelAngle)
+		end
+	end
+	--]]
 end
