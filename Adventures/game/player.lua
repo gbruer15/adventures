@@ -689,7 +689,7 @@ function playerfunctions.update(dt)
 
 	player.body:scale(player.drawwidth/playerimages.picwidth,player.drawheight/playerimages.picheight)
 	
-	--playerfunctions.updateAnimation(dt*math.abs(player.xspeed)/player.speed)
+	playerfunctions.updateAnimation(dt*math.abs(player.xspeed)/player.speed)
 	if player.onground then
 		player.bones.wheelBone.aspeed = player.xspeed/player.bones.wheelBone.length
 	end
@@ -790,7 +790,7 @@ function playerfunctions.draw()
 		love.graphics.setLineWidth(14*player.body.xscale)
 		love.graphics.line(player.bones.spineBone.startPoint[1],player.bones.spineBone.startPoint[2],player.bones.spineBone.endPoint[1],player.bones.spineBone.endPoint[2])
 	
-		player.body:draw(false,false)
+		player.body:draw(true,false)
 		return 
 	end
 
@@ -977,6 +977,31 @@ function playerfunctions.changeDirection()
 	player.body:scale(-1,1)
 --]]
 	player.body:flipX()
+
+	--[[
+	local t = 0.8
+	player.keyFrames = {
+		backarmBone={bodyRelAngle={-60,-93,-60},time={t,t},bounce=true}
+		,forearmBone={relAngle={50,10,50},time={t,t}, bounce=true}
+		,backbackarmBone={bodyRelAngle={-93,-60,-93},time={t,t},bounce=true}
+		,backforearmBone={relAngle={-10,-50,-10},time={t,t}, bounce=true}
+	 }
+	 for i,v in pairs(player.keyFrames) do
+	 	v.bodyRelAngle = v.bodyRelAngle
+	 	if v.bodyRelAngle then
+		 	for j,a in ipairs(v.bodyRelAngle) do
+		 		a = a-player.body.angle/math.pi*180*2
+		 	end
+		end
+		if v.relAngle then
+		 	for j,a in ipairs(v.relAngle) do
+		 		a= a-player.body.angle/math.pi*180*2
+		 	end
+		 end
+	 end
+	
+	playerfunctions.setupAnimation()
+	--]]
 
 end
 

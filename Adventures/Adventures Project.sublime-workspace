@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"pivotPoint",
+				"pivotPointPicTheta"
+			],
+			[
+				"pivot",
+				"pivotPointPicTheta"
+			],
+			[
+				"rel",
+				"relPivotPoint"
+			],
+			[
+				"piv",
+				"pivotPointPicTheta"
+			],
+			[
+				"move",
+				"moveDistance"
+			],
+			[
+				"upper",
+				"upperConstraint"
+			],
+			[
 				"end",
 				"end"
 			],
@@ -79,7 +103,7 @@
 			"file": "lib/physics/bone.lua",
 			"settings":
 			{
-				"buffer_size": 19831,
+				"buffer_size": 22182,
 				"line_ending": "Unix"
 			}
 		},
@@ -87,7 +111,7 @@
 			"file": "game/player.lua",
 			"settings":
 			{
-				"buffer_size": 41299,
+				"buffer_size": 41416,
 				"line_ending": "Unix"
 			}
 		},
@@ -259,6 +283,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"bonepicangle",
+			"bone:draw",
 			"constraint",
 			"playerfunctions.updateAnimat",
 			"player.updateAnimat",
@@ -384,9 +410,7 @@
 			" print(",
 			"print",
 			"grassydirt",
-			"stonebrick",
-			"door",
-			"level.stuff"
+			"stonebrick"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -440,15 +464,15 @@
 					"file": "lib/physics/bone.lua",
 					"settings":
 					{
-						"buffer_size": 19831,
+						"buffer_size": 22182,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								16497,
-								16497
+								21265,
+								21265
 							]
 						],
 						"settings":
@@ -457,7 +481,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 8949.0,
+						"translation.y": 10867.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -467,15 +491,15 @@
 					"file": "game/player.lua",
 					"settings":
 					{
-						"buffer_size": 41299,
+						"buffer_size": 41416,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								36162,
-								36162
+								10201,
+								10201
 							]
 						],
 						"settings":
@@ -483,8 +507,8 @@
 							"syntax": "Packages/Lua/Lua.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 0.0,
-						"translation.y": 15218.0,
+						"translation.x": 1050.0,
+						"translation.y": 5074.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -501,8 +525,8 @@
 						"selection":
 						[
 							[
-								13470,
-								13470
+								11701,
+								11701
 							]
 						],
 						"settings":
@@ -511,7 +535,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6497.0,
+						"translation.y": 6554.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

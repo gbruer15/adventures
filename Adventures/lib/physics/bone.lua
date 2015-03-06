@@ -328,7 +328,7 @@ function bonePicture:draw(drawBone,drawStructure,width,height,scale)
 		--But what I want is for the pivot points to be lined up.
 
 		--move picture in direction of angle of picture to line up pivot points
-		local moveAngle = self.angle
+		local moveAngle = self.angle + self.bonePicAngle
 		local moveDistance = self.relPivotPoint[1]*2
 		drawy = drawy + moveDistance*math.sin(moveAngle)
 		drawx = drawx + moveDistance*math.cos(moveAngle)
@@ -339,6 +339,15 @@ function bonePicture:draw(drawBone,drawStructure,width,height,scale)
 		love.graphics.setColor(self.color[1],self.color[2],self.color[3],120)
 	end
 	love.graphics.draw(self.pic,drawx,drawy, angle,width/self.picwidth, height/self.picheight)
+
+	local moveAngle = self.angle + self.bonePicAngle
+	local moveDistance = self.relPivotPoint[1]*2
+	drawy = drawy - moveDistance*math.sin(moveAngle) +moveDistance*math.sin(self.angle-self.bonePicAngle)
+	drawx = drawx - moveDistance*math.cos(moveAngle)+ moveDistance*math.cos(self.angle-self.bonePicAngle)
+
+	love.graphics.setColor(255,255,255,160)
+	--love.graphics.draw(self.pic,drawx,drawy, angle,width/self.picwidth, height/self.picheight)
+
 end
 
 
@@ -598,13 +607,14 @@ function body:flipX()
 
 		--bp.drawheight = bp.drawheight
 		local b = bp.bone
+
 		if not b.parent then
 			b:setStartPoint(self.x-(b.startPoint[1]-self.x),b.startPoint[2])
 			b:setEndPoint(self.x-(b.endPoint[1]-self.x),b.endPoint[2])
 			b.upperConstraint,b.lowerConstraint = b.lowerConstraint and 2*math.pi-b.lowerConstraint, b.upperConstraint and 2*math.pi-b.upperConstraint
 			
 			b:setRelAngle(2*math.pi-b.relAngle)
-			b:setBodyRelAngle(2*math.pi-b.bodyRelAngle)
+			--b:setBodyRelAngle(2*math.pi-b.bodyRelAngle)
 		else
 			b.upperConstraint,b.lowerConstraint = b.lowerConstraint and 2*math.pi-b.lowerConstraint, b.upperConstraint and 2*math.pi-b.upperConstraint
 			
