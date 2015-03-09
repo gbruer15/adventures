@@ -114,7 +114,7 @@ function bone:setEndPoint(x,y)
 end
 
 function bone:setRelAngle(newRelAngle, changeChildren)
-	self.absAngle = self.absAngle + (newRelAngle - self.relAngle)
+	--self.absAngle = self.absAngle + (newRelAngle - self.relAngle)
 
 	self.relAngle = newRelAngle
 	self:update(0)
@@ -609,8 +609,8 @@ function body:flipX()
 		local b = bp.bone
 
 		if not b.parent then
-			b:setStartPoint(self.x-(b.startPoint[1]-self.x),b.startPoint[2])
-			b:setEndPoint(self.x-(b.endPoint[1]-self.x),b.endPoint[2])
+			--b:setStartPoint(self.x-(b.startPoint[1]-self.x),b.startPoint[2])
+			--b:setEndPoint(self.x-(b.endPoint[1]-self.x),b.endPoint[2])
 			b.upperConstraint,b.lowerConstraint = b.lowerConstraint and 2*math.pi-b.lowerConstraint, b.upperConstraint and 2*math.pi-b.upperConstraint
 			
 			b:setRelAngle(2*math.pi-b.relAngle)

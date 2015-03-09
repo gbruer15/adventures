@@ -103,7 +103,7 @@
 			"file": "lib/physics/bone.lua",
 			"settings":
 			{
-				"buffer_size": 22182,
+				"buffer_size": 22651,
 				"line_ending": "Unix"
 			}
 		},
@@ -111,7 +111,7 @@
 			"file": "game/player.lua",
 			"settings":
 			{
-				"buffer_size": 41416,
+				"buffer_size": 42435,
 				"line_ending": "Unix"
 			}
 		},
@@ -148,10 +148,10 @@
 	},
 	"file_history":
 	[
+		"/home/grant/scm/AdventuresEC2/Adventures/Adventures Project.sublime-project",
 		"/home/grant/scm/AdventuresEC2/Adventures/lib/utilities/tableUtilities.lua",
 		"/home/grant/scm/AdventuresEC2/Adventures/game/save.lua",
 		"/home/grant/scm/AdventuresKiln/Adventures/main.lua",
-		"/home/grant/scm/AdventuresEC2/Adventures/Adventures Project.sublime-project",
 		"/home/grant/scm/AdventuresEC2/Adventures/game/Enemies/wizard.lua",
 		"/C/Users/Grant/scm/AdventuresKiln/Adventures/Adventures Project.sublime-project",
 		"/home/grant/scm/AdventuresKiln/Adventures/game/upgrade.lua",
@@ -283,6 +283,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"updateAn",
+			"setupanim",
+			"forearmPic",
+			"player.bonePics",
+			"body.angle",
+			"body:draw",
+			"angle",
+			"updateanim",
+			"flipxchildren",
+			"flipxychildren",
 			"bonepicangle",
 			"bone:draw",
 			"constraint",
@@ -400,17 +410,7 @@
 			"	\n",
 			"})\n",
 			"player.hurttext",
-			"	\n",
-			"255",
-			"])/",
-			"3",
-			"player.upgradepoints",
-			"gold",
-			"print(",
-			" print(",
-			"print",
-			"grassydirt",
-			"stonebrick"
+			"	\n"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -456,7 +456,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -464,15 +464,15 @@
 					"file": "lib/physics/bone.lua",
 					"settings":
 					{
-						"buffer_size": 22182,
+						"buffer_size": 22651,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								21265,
-								21265
+								4340,
+								4340
 							]
 						],
 						"settings":
@@ -481,7 +481,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 10867.0,
+						"translation.y": 2026.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -491,24 +491,25 @@
 					"file": "game/player.lua",
 					"settings":
 					{
-						"buffer_size": 41416,
+						"buffer_size": 42435,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10201,
-								10201
+								25536,
+								25536
 							]
 						],
 						"settings":
 						{
+							"spell_check": true,
 							"syntax": "Packages/Lua/Lua.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 1050.0,
-						"translation.y": 5074.0,
+						"translation.x": 0.0,
+						"translation.y": 12824.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

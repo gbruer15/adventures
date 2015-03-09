@@ -689,7 +689,7 @@ function playerfunctions.update(dt)
 
 	player.body:scale(player.drawwidth/playerimages.picwidth,player.drawheight/playerimages.picheight)
 	
-	playerfunctions.updateAnimation(dt*math.abs(player.xspeed)/player.speed)
+	--playerfunctions.updateAnimation(dt*math.abs(player.xspeed)/player.speed)
 	if player.onground then
 		player.bones.wheelBone.aspeed = player.xspeed/player.bones.wheelBone.length
 	end
@@ -791,6 +791,18 @@ function playerfunctions.draw()
 		love.graphics.line(player.bones.spineBone.startPoint[1],player.bones.spineBone.startPoint[2],player.bones.spineBone.endPoint[1],player.bones.spineBone.endPoint[2])
 	
 		player.body:draw(true,false)
+
+		love.graphics.setColor(0,0,0)
+		love.graphics.setLineWidth(2)
+
+		local bp = player.bonePics.forearmPic
+		local angle = bp.angle
+		local l = 18
+		love.graphics.line(bp.x,bp.y, bp.x+math.cos(angle)*l, bp.y+math.sin(angle)*l )
+
+		local angle = bp.bonePicAngle
+		--love.graphics.line(bp.x,bp.y, bp.x+math.cos(angle)*3, bp.y+math.sin(angle)*3 )
+
 		return 
 	end
 
