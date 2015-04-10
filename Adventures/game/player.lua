@@ -673,8 +673,15 @@ function playerfunctions.update(dt)
 	player.body:setScale(1,1)
 	player.body:scale(player.drawwidth/playerimages.picwidth,player.drawheight/playerimages.picheight)
 	
-	playerfunctions.updateAnimation(dt*math.abs(player.xspeed)/player.speed)
-
+	if player.equippedWeapon == 'sword' then
+		if player.weapons.sword.state == "ready" then
+			
+		else --sword is swinging
+			player.bones.backarmBone.relAngle = -player.armAngle
+		end
+	end
+	
+	playerfunctions.updateAnimation(dt*player.xspeed/player.speed)
 	player.body:update(dt)
 	
 	if player.curanim.type then
@@ -768,7 +775,7 @@ function playerfunctions.draw()
 		love.graphics.line(player.bones.spineBone.startPoint[1],player.bones.spineBone.startPoint[2],player.bones.spineBone.endPoint[1],player.bones.spineBone.endPoint[2])
 	
 		player.body:draw(false,false)
-		return 
+		--return 
 	end
 
 	if player.curanim.type then
@@ -829,13 +836,13 @@ function playerfunctions.draw()
 			love.graphics.draw(playerimages.towards, player.x-player.drawwidth/2, player.y-player.drawheight/2,0, player.drawwidth/playerimages.picwidth, player.drawheight/playerimages.picheight)
 		elseif player.facing == 'right' then
 			love.graphics.setColor(otherColor)
-			love.graphics.draw(playerimages.right, player.x-player.drawwidth/2, player.y-player.drawheight/2,0 ,player.drawwidth/playerimages.picwidth, player.drawheight/playerimages.picheight)
+			love.graphics.draw(playerimages.right, player.x-player.drawwidth/2, player.y-player.drawheight/2+4,0 ,player.drawwidth/playerimages.picwidth, player.drawheight/playerimages.picheight)
 			
 			love.graphics.setColor(255,255,255)
-			playerfunctions.drawWheel()
+			--playerfunctions.drawWheel()
 			
 			love.graphics.setColor(torsoColor)
-			love.graphics.draw(playerimages.rightTorso, player.x-player.drawwidth/2, player.y-player.drawheight/2,0 ,player.drawwidth/playerimages.picwidth, player.drawheight/playerimages.picheight)
+			love.graphics.draw(playerimages.rightTorso, player.x-player.drawwidth/2, player.y-player.drawheight/2+4,0 ,player.drawwidth/playerimages.picwidth, player.drawheight/playerimages.picheight)
 			
 			if player.equippedWeapon == 'sword' then
 				player.weapons[player.equippedWeapon]:draw()
@@ -849,13 +856,13 @@ function playerfunctions.draw()
 			end
 		else
 			love.graphics.setColor(otherColor)
-			love.graphics.draw(playerimages.left, player.x-player.drawwidth/2, player.y-player.drawheight/2,0 ,player.drawwidth/playerimages.picwidth, player.drawheight/playerimages.picheight)
+			love.graphics.draw(playerimages.left, player.x-player.drawwidth/2, player.y-player.drawheight/2+4,0 ,player.drawwidth/playerimages.picwidth, player.drawheight/playerimages.picheight)
 			
 			love.graphics.setColor(255,255,255)
-			playerfunctions.drawWheel()
+			--playerfunctions.drawWheel()
 			
 			love.graphics.setColor(torsoColor)
-			love.graphics.draw(playerimages.leftTorso, player.x-player.drawwidth/2, player.y-player.drawheight/2,0 ,player.drawwidth/playerimages.picwidth, player.drawheight/playerimages.picheight)
+			love.graphics.draw(playerimages.leftTorso, player.x-player.drawwidth/2, player.y-player.drawheight/2+4,0 ,player.drawwidth/playerimages.picwidth, player.drawheight/playerimages.picheight)
 			
 			if player.equippedWeapon == 'sword' then
 				player.weapons[player.equippedWeapon]:draw()
@@ -895,8 +902,8 @@ end
 playerfunctions.armPivotXRelPerson = 92
 playerfunctions.armPivotYRelPerson = 232
 playerfunctions.armAngle = math.atan(playerfunctions.armPivotYRelPerson/playerfunctions.armPivotXRelPerson)
-playerfunctions.armXLength = (45-26)
-playerfunctions.armYLength = (145-19)
+playerfunctions.armXLength = (70-21)
+playerfunctions.armYLength = (190-12)
 playerfunctions.armLengthAngle = math.atan(playerfunctions.armYLength/playerfunctions.armXLength)
 
 playerfunctions.armPivotXRelArm = 27

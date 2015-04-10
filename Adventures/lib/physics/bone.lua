@@ -393,7 +393,16 @@ function body:draw(drawBone,drawStructure)
 	end
 	
 	for i,b in ipairs(self.bonePics) do
-		b:draw(drawBone,drawStructure)
+		local l = {'backarm','forearm','fist','backba','backfa','sword','head'}
+		local bad = false
+		for i,v in ipairs(l) do
+			if b.bone.id == v then
+				bad = true
+			end
+		end
+		if not bad then
+			b:draw(drawBone,drawStructure)
+		end
 	end
 end
 function bone:scaleChildren(xscale,yscale,cx,cy)

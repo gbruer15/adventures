@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"backArm",
+				"backarmBone"
+			],
+			[
 				"requi",
 				"requireDirectory"
 			],
@@ -75,7 +79,7 @@
 			"file": "lib/physics/bone.lua",
 			"settings":
 			{
-				"buffer_size": 15402,
+				"buffer_size": 15605,
 				"line_ending": "Unix"
 			}
 		},
@@ -83,7 +87,7 @@
 			"file": "game/player.lua",
 			"settings":
 			{
-				"buffer_size": 37216,
+				"buffer_size": 40283,
 				"line_ending": "Unix"
 			}
 		},
@@ -91,7 +95,7 @@
 			"file": "game/save.lua",
 			"settings":
 			{
-				"buffer_size": 2347,
+				"buffer_size": 2378,
 				"line_ending": "Windows"
 			}
 		},
@@ -102,9 +106,25 @@
 				"buffer_size": 6948,
 				"line_ending": "Windows"
 			}
+		},
+		{
+			"file": "game/upgrade.lua",
+			"settings":
+			{
+				"buffer_size": 9860,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "game/weapons.lua",
+			"settings":
+			{
+				"buffer_size": 23834,
+				"line_ending": "Unix"
+			}
 		}
 	],
-	"build_system": "Linux Love2d 9.0",
+	"build_system": "Windows Love2d 9.0",
 	"command_palette":
 	{
 		"height": 392.0,
@@ -128,6 +148,7 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Grant/scm/Adventures Stable/Adventures/Adventures Project.sublime-project",
 		"/home/grant/scm/AdventuresEC2/Adventures/Adventures Project.sublime-project",
 		"/home/grant/scm/AdventuresEC2/Adventures/game/Enemies/wizard.lua",
 		"/C/Users/Grant/scm/AdventuresKiln/Adventures/Adventures Project.sublime-project",
@@ -261,6 +282,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"armLength",
+			"sword:draw",
+			"\n		",
+			"4",
+			"player.equi",
+			"player.armAngle",
+			"self.armAngle",
+			"player.armAngle",
+			"swing",
+			"player.weapons[player",
+			"player.weapons",
+			"player.body",
 			"love.graphics.newImage('",
 			"bones",
 			"tiledraw",
@@ -376,19 +409,7 @@
 			"watercolor",
 			"player.inlevel",
 			"player.door",
-			"\")\n",
-			"player.inwater",
-			"\"w\"",
-			"'w'",
-			"levelup",
-			"levelupxps = ",
-			"levelup",
-			"player.actual",
-			"inwater",
-			"gravity",
-			"wateragility",
-			"player.inwaterheight",
-			"player x"
+			"\")\n"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -434,7 +455,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -442,15 +463,15 @@
 					"file": "lib/physics/bone.lua",
 					"settings":
 					{
-						"buffer_size": 15402,
+						"buffer_size": 15605,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12454,
-								12454
+								12640,
+								12640
 							]
 						],
 						"settings":
@@ -459,7 +480,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6790.0,
+						"translation.y": 7396.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -469,15 +490,15 @@
 					"file": "game/player.lua",
 					"settings":
 					{
-						"buffer_size": 37216,
+						"buffer_size": 40283,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11105,
-								11105
+								33726,
+								33726
 							]
 						],
 						"settings":
@@ -485,8 +506,8 @@
 							"syntax": "Packages/Lua/Lua.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 150.0,
-						"translation.y": 5119.0,
+						"translation.x": 0.0,
+						"translation.y": 18534.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -496,15 +517,15 @@
 					"file": "game/save.lua",
 					"settings":
 					{
-						"buffer_size": 2347,
+						"buffer_size": 2378,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								277,
-								277
+								0,
+								0
 							]
 						],
 						"settings":
@@ -540,7 +561,61 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 399.0,
+						"translation.y": 57.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "game/upgrade.lua",
+					"settings":
+					{
+						"buffer_size": 9860,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "game/weapons.lua",
+					"settings":
+					{
+						"buffer_size": 23834,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14421,
+								14409
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 7628.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
