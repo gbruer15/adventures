@@ -40,7 +40,7 @@ function weapons.bow:update(dt)
 		
 		self.angle = math.atan2(worldy-self.y,worldx-self.x)
 		
-		if not love.mouse.isDown('l') then
+		if not love.mouse.isDown(1) then
 			self:fire()
 		end
 	end

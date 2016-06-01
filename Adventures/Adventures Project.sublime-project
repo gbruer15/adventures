@@ -25,13 +25,13 @@
 				"$project_path"
 			],
 			"shell": false,
-			"name": "Linux Love2d 9.0"
+			"name": "Linux Love2d"
 		}
 	],
 	"folders":
 	[
 		{
-			"path": "C:\\Users\\Grant\\scm\\Adventures Stable\\Adventures"
+			"path": "."
 			,"file_include_patterns":
 			[
 				"*.lua"
@@ -53,23 +53,6 @@
 				"*.lua~"
 			]
 		}
-		,{
-			"path": "/home/grant/scm/Adventures Stable/Adventures"
-			,"file_include_patterns":
-			[
-				"*.lua"
-				//"*.lua~"
-			]
-			,"folder_include_patterns":
-			[
-				//"lib"
-				//,"lib/Enemies"
-			]
-			,"file_exclude_patterns":[
-				"*.lua~"
-			]
-		}
-		
 		,{
 			"path": "lib"
 			,"file_exclude_patterns":[

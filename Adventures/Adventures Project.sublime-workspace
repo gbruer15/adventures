@@ -76,58 +76,23 @@
 	"buffers":
 	[
 		{
-			"file": "lib/physics/bone.lua",
+			"file": "game/misc resources.lua",
 			"settings":
 			{
-				"buffer_size": 15605,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "game/player.lua",
-			"settings":
-			{
-				"buffer_size": 40283,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "game/save.lua",
-			"settings":
-			{
-				"buffer_size": 2378,
+				"buffer_size": 8206,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "lib/utilities/tableUtilities.lua",
-			"settings":
-			{
-				"buffer_size": 6948,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "game/upgrade.lua",
-			"settings":
-			{
-				"buffer_size": 9860,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "game/weapons.lua",
-			"settings":
-			{
-				"buffer_size": 23834,
-				"line_ending": "Unix"
 			}
 		}
 	],
 	"build_system": "Windows Love2d 9.0",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
 	"command_palette":
 	{
 		"height": 392.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],
@@ -135,7 +100,10 @@
 	},
 	"console":
 	{
-		"height": 554.0
+		"height": 554.0,
+		"history":
+		[
+		]
 	},
 	"distraction_free":
 	{
@@ -146,8 +114,30 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/home/gbruer/scm/Adventures/Adventures/LevelEditor/Levels",
+		"/home/gbruer/scm/Adventures/Adventures/lib",
+		"/home/gbruer/scm/Adventures/Adventures/game"
+	],
 	"file_history":
 	[
+		"/home/gbruer/scm/Adventures/Adventures/main.lua",
+		"/home/gbruer/scm/Adventures/Adventures/game/states.lua",
+		"/home/gbruer/scm/Adventures/Adventures/LevelEditor/lib/editor.lua",
+		"/home/gbruer/scm/Adventures/Adventures/game/weapons.lua",
+		"/home/gbruer/scm/Adventures/Adventures/lib/display/slider.lua",
+		"/home/gbruer/scm/Adventures/Adventures/game/upgrade.lua",
+		"/home/gbruer/scm/Adventures/Adventures/lib/display/boolBox.lua",
+		"/home/gbruer/scm/Adventures/Adventures/LevelEditor/lib/weapons.lua",
+		"/home/gbruer/scm/Adventures/Adventures/LevelEditor/lib/states.lua",
+		"/home/gbruer/scm/Adventures/Adventures/LevelEditor/lib/display functions.lua",
+		"/home/gbruer/scm/Adventures/Adventures/lib/utilities/tableUtilities.lua",
+		"/home/gbruer/scm/Adventures/Adventures/game/save.lua",
+		"/home/gbruer/scm/Adventures/Adventures/lib/physics/bone.lua",
+		"/home/gbruer/scm/Adventures/Adventures/game/player.lua",
+		"/home/gbruer/scm/Adventures/Adventures/Adventures Project.sublime-project",
+		"/home/gbruer/scm/Adventures/Adventures/conf.lua",
 		"/C/Users/Grant/scm/Adventures Stable/Adventures/Adventures Project.sublime-project",
 		"/home/grant/scm/AdventuresEC2/Adventures/Adventures Project.sublime-project",
 		"/home/grant/scm/AdventuresEC2/Adventures/game/Enemies/wizard.lua",
@@ -263,13 +253,18 @@
 	],
 	"find":
 	{
-		"height": 43.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 96.0,
 		"where_history":
 		[
+			"~/scm/Adventures/Adventures,*.lua",
+			"../..,*.lua",
+			"..,*.lua",
+			"..",
+			".",
 			"/home/grant/scm/AdventuresKiln/Adventures",
 			"C:\\Users\\Grant\\scm\\Adventures\\Adventures",
 			"C:\\Users\\Grant\\Desktop\\Love\\Adventures",
@@ -282,6 +277,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"key\\s*==\\s*1",
+			"'r'",
+			"'l'",
+			"==\\s*'l'",
+			"'l'",
+			"mousepressed",
+			"love.mousepressed",
 			"armLength",
 			"sword:draw",
 			"\n		",
@@ -402,21 +404,15 @@
 			"print(",
 			" print(",
 			"print",
-			"grassydirt",
-			"stonebrick",
-			"door",
-			"level.stuff",
-			"watercolor",
-			"player.inlevel",
-			"player.door",
-			"\")\n"
+			"grassydirt"
 		],
 		"highlight": false,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
+			"== 1",
 			"love.graphics.newImage('Art/PlayerParts/",
 			"player.bones",
 			"colors.getPulsingColors",
@@ -455,169 +451,36 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "lib/physics/bone.lua",
+					"file": "game/misc resources.lua",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15605,
+						"buffer_size": 8206,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12640,
-								12640
+								4594,
+								4594
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 7396.0,
+						"translation.y": 2220.0,
 						"zoom_level": 1.0
 					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "game/player.lua",
-					"settings":
-					{
-						"buffer_size": 40283,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								33726,
-								33726
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 18534.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "game/save.lua",
-					"settings":
-					{
-						"buffer_size": 2378,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 57.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "lib/utilities/tableUtilities.lua",
-					"settings":
-					{
-						"buffer_size": 6948,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 57.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "game/upgrade.lua",
-					"settings":
-					{
-						"buffer_size": 9860,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "game/weapons.lua",
-					"settings":
-					{
-						"buffer_size": 23834,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								14421,
-								14409
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 7628.0,
-						"zoom_level": 1.0
-					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -658,6 +521,12 @@
 	{
 		"height": 204.0
 	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Linux Love2d",
+	"project": "Adventures Project.sublime-project",
 	"replace":
 	{
 		"height": 62.0
@@ -666,6 +535,7 @@
 	"select_file":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -678,6 +548,7 @@
 	"select_project":
 	{
 		"height": 878.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -687,10 +558,26 @@
 		],
 		"width": 1378.0
 	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 187.0,
-	"status_bar_visible": true
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
 }

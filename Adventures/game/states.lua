@@ -1032,7 +1032,7 @@ states.game = {}
 			states.game.load(true)
 		elseif key =='n' then
 			night = not night
-		elseif key =='l' then
+		elseif key == 'l' then
 			camera.lock = not camera.lock
 		elseif key == 'c' then
 			crazycolor = not crazycolor
@@ -1070,7 +1070,7 @@ states.game = {}
 
 	function states.game.mousereleased(x,y,button)
 		if not paused then
-			if button == 'l' and player.shooting == 'aiming' then
+			if button == 1 and player.shooting == 'aiming' then
 				--player.shooting = true
 			end
 		else
@@ -1302,7 +1302,7 @@ states.levelwon = {}
 	end
 	function states.levelwon.mousepressed(x,y,button)
 		local self = states.levelwon
-		if button=='l' then
+		if button==1 then
 			for i,b in pairs(self.buttons) do
 				if b.hover then
 					b.shadow.x = b.shadow.x-2
@@ -1318,7 +1318,7 @@ states.levelwon = {}
 	
 	function states.levelwon.mousereleased(x,y,button)
 		local self = states.levelwon
-		if button=='l' then
+		if button== 1 then
 			for i,b in pairs(self.buttons) do				
 				if b.selected then
 					b.shadow.x = b.shadow.x+2

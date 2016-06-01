@@ -103,7 +103,7 @@ end
 function editor.mousepressed(x,y,button)
 	wx,wy = camera.getWorldPoint(x,y)
 
-	if button == 'l' then
+	if button == 1 then
 		if menu.anyOn() then
 			local hover = false
 			for i=1,#menu.onmenus do
@@ -185,7 +185,7 @@ function editor.mousepressed(x,y,button)
 
 			end
 		end
-	elseif button == 'r' then
+	elseif button == 2 then
 	
 		for i,v in pairs(menus) do
 			v:hide()

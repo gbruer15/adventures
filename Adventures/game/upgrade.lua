@@ -165,7 +165,7 @@ function upgradescreen:draw()
 end
 
 function upgradescreen:mousepressed(x,y,button)
-	if button == 'l' then
+	if button == 1 then
 		for i,b in pairs(self.buttons) do
 			if b.hover then
 				b.selected = true
@@ -181,7 +181,7 @@ function upgradescreen:mousepressed(x,y,button)
 	end
 end
 function upgradescreen:mousereleased(x,y,button)
-	if button =='l' then
+	if button == 1 then
 		for i,b in pairs(self.buttons) do
 			if b.selected then
 				if b.hover then
