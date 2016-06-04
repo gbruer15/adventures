@@ -115,10 +115,10 @@ function resources.load()
 	titlecastle.width = titlecastle.pic:getWidth()
 	titlecastle.height = titlecastle.pic:getHeight()
 
-	grantgames = {}
-	grantgames.pic = love.graphics.newImage("Art/Misc Pics/Grant Games.gif")
-	grantgames.width = grantgames.pic:getWidth()
-	grantgames.height = grantgames.pic:getHeight()
+	-- grantgames = {}
+	-- grantgames.pic = love.graphics.newImage("Art/Misc Pics/Grant Games.gif")
+	-- grantgames.width = grantgames.pic:getWidth()
+	-- grantgames.height = grantgames.pic:getHeight()
 	
 	playerimages = {}
 	playerimages.left = love.graphics.newImage("Art/Person Pics/facing left.png")

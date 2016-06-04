@@ -4,19 +4,11 @@
 		{
 			"cmd":
 			[
-				"C:\\Program Files (x86)\\LOVE\\love.exe",
-				"$project_path"
-			],
-			"name": "Windows Love2d 8.0"
-		},
-		{
-			"cmd":
-			[
 				"love",
 				"$project_path"
 			],
 			"shell": true,
-			"name": "Windows Love2d 9.0"
+			"name": "Windows Love2d"
 		},
 		{
 			"cmd":
@@ -25,17 +17,16 @@
 				"$project_path"
 			],
 			"shell": false,
-			"name": "Linux Love2d 9.0"
+			"name": "Linux Love2d"
 		}
 	],
 	"folders":
 	[
 		{
-			"path": "C:\\Users\\Grant\\scm\\AdventuresEC2\\Adventures"
+			"path": "."
 			,"file_include_patterns":
 			[
 				"*.lua"
-				//"*.lua~"
 			]
 			,"folder_include_patterns":
 			[
@@ -53,23 +44,6 @@
 				"*.lua~"
 			]
 		}
-		,{
-			"path": "/home/grant/scm/AdventuresEC2/Adventures"
-			,"file_include_patterns":
-			[
-				"*.lua"
-				//"*.lua~"
-			]
-			,"folder_include_patterns":
-			[
-				//"lib"
-				//,"lib/Enemies"
-			]
-			,"file_exclude_patterns":[
-				"*.lua~"
-			]
-		}
-		
 		,{
 			"path": "lib"
 			,"file_exclude_patterns":[

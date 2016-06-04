@@ -115,11 +115,11 @@ states.titlemenu = {}
 	function states.titlemenu.keypressed(key)
 		if key == "escape" then
 			love.event.quit()
-		elseif key ==' ' then
+		elseif key == 'space' then
 			states.fileselect.load()
 		elseif key == 'f' then
-			window.fullscreen = not window.fullscreen
-			love.graphics.setMode( window.width, window.height, window.fullscreen)
+			window.flags.fullscreen = not window.flags.fullscreen
+			love.window.setMode( window.width, window.height, window.flags)
 		end
 	end
 
@@ -445,7 +445,7 @@ states.fileselect = {}
 	function states.fileselect.keypressed(key)
 		if key == 'escape' then
 			love.event.quit()
-		elseif key == ' ' then
+		elseif key == 'space' then
 			selectedfile = 'one'
 			states.levelselect.load()
 		end
@@ -735,7 +735,7 @@ states.levelselect = {}
 		if key == 'escape' then
 			love.event.quit()
 			QUIT=true
-		elseif key == ' ' then
+		elseif key == 'space' then
 			local levelNumber = (player.levelNumber~=0 and player.levelNumber) or 1
 			local new = player.levelNumber ~= levelNumber
 			states.game.load(levelNumber,new)
@@ -1030,9 +1030,9 @@ states.game = {}
 			playerfunctions.changeWeapon()
 		elseif key == 'r' then
 			states.game.load(true)
-		elseif key =='n' then
+		elseif key == 'n' then
 			night = not night
-		elseif key =='l' then
+		elseif key == 'l' then
 			camera.lock = not camera.lock
 		elseif key == 'c' then
 			crazycolor = not crazycolor
@@ -1070,7 +1070,7 @@ states.game = {}
 
 	function states.game.mousereleased(x,y,button)
 		if not paused then
-			if button == 'l' and player.shooting == 'aiming' then
+			if button == 1 and player.shooting == 'aiming' then
 				--player.shooting = true
 			end
 		else
@@ -1302,7 +1302,7 @@ states.levelwon = {}
 	end
 	function states.levelwon.mousepressed(x,y,button)
 		local self = states.levelwon
-		if button=='l' then
+		if button == 1 then
 			for i,b in pairs(self.buttons) do
 				if b.hover then
 					b.shadow.x = b.shadow.x-2
@@ -1318,7 +1318,7 @@ states.levelwon = {}
 	
 	function states.levelwon.mousereleased(x,y,button)
 		local self = states.levelwon
-		if button=='l' then
+		if button == 1 then
 			for i,b in pairs(self.buttons) do				
 				if b.selected then
 					b.shadow.x = b.shadow.x+2

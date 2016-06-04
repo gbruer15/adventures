@@ -137,7 +137,7 @@ function slider:update()
 	else
 		self.hover = false
 	end
-	if self.selected and love.mouse.isDown('l') then
+	if self.selected and love.mouse.isDown(1) then
 		self.value = (x + self.mouseoffx - self.x)/self.width
 		if self.value > 1 then
 			self.value = 1

@@ -2,7 +2,6 @@
 
 
 function savegame(savefile)
-	--[[
 	if type(savefile) == "boolean" then
 		error("savefile == " .. tostring(savefile))
 	end

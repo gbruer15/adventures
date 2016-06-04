@@ -170,7 +170,7 @@ function playerfunctions.make(name)
 	player.wheelOffsetY = 214*player.drawheight/playerimages.picheight
 	player.wheelCenterX = player.x+player.wheelOffsetX
 	player.wheelCenterY = player.y+player.wheelOffsetY
-	player.wheelRadius = 134*player.drawwidth/playerimages.picwidth
+	player.wheelRadius = 134/2*player.drawwidth/playerimages.picwidth
 	player.wheelPicDiag = player.wheelRadius*math.sqrt(2)
 	player.wheelAngle = 0
 	player.wheelAspeed = player.xspeed/player.wheelRadius
@@ -785,7 +785,7 @@ function playerfunctions.draw()
 	love.graphics.print("backarm Angle: " .. player.bones.backarmBone.relAngle,0,0)
 	love.graphics.print("backarm lower: " .. tostring(player.bones.backarmBone.lowerConstraint),0,25)
 	love.graphics.print("backarm upper: " .. tostring(player.bones.backarmBone.upperConstraint),0,50)
-	if true then
+	if false then
 		love.graphics.setColor(0,0,0)
 		love.graphics.setLineWidth(14*player.body.xscale)
 		love.graphics.line(player.bones.spineBone.startPoint[1],player.bones.spineBone.startPoint[2],player.bones.spineBone.endPoint[1],player.bones.spineBone.endPoint[2])
@@ -1031,7 +1031,6 @@ function playerfunctions.drawWheel(scale)
 	
 	love.graphics.setColor(255,255,255)
 	love.graphics.draw(playerwheel.pic,left,top,player.wheelAngle,scale*player.drawwidth/playerimages.picwidth,scale*player.drawheight/playerimages.picheight)
-	
 end
 
 function playerfunctions.changeWeapon()

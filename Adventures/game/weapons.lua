@@ -308,7 +308,7 @@ function weapons.sword:draw()
 end
 
 function weapons.sword:mousepressed(x,y,button)
-	if button == 'l' and self.state == 'ready' then
+	if button == 1 and self.state == 'ready' then
 		self:swing()
 	end
 end
@@ -403,7 +403,7 @@ function weapons.bow:update(dt)
 		mag = -mag+(self.offsetX^2+self.offsetY^2)^0.5
 		self.newArrow = weapons.arrow.make(self.x+mag*math.cos(self.angle),self.y+mag*math.sin(self.angle), self.power * 5, self.angle)
 		
-		if not love.mouse.isDown('l') then
+		if not love.mouse.isDown(1) then
 			self:fire()
 		end
 	else
@@ -480,7 +480,7 @@ function weapons.bow:draw()
 end
 
 function weapons.bow:mousepressed(x,y,button)
-	if button == 'l' and self.arrowsLeft > 0 then
+	if button == 1 and self.arrowsLeft > 0 then
 		self:pullBack()
 	end
 end

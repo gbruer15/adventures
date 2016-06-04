@@ -395,7 +395,7 @@ function levelediting:mousepressed(x,y,button)
 end
 
 function levelediting:mousereleased(x,y,button)
-	if button == 'l' then
+	if button == 1 then
 		if editor.state == 'adding' then
 			x,y = camera.getWorldPoint(x,y)
 			if editor.rounding() then

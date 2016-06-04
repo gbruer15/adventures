@@ -80,7 +80,9 @@ require("lib/animation")
 function love.load()
 	window = {}
 	window.width, window.height = love.graphics.getDimensions()
-	window.fullscreen = false
+	window.flags = {}
+	window.flags.fullscreen = false
+	window.flags.fullscreentype = 'exclusive'
 	
 	TYPED = ""
 	QUIT = false
