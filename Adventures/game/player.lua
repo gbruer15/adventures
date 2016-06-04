@@ -689,7 +689,7 @@ function playerfunctions.update(dt)
 
 	player.body:scale(player.drawwidth/playerimages.picwidth,player.drawheight/playerimages.picheight)
 	
-	--playerfunctions.updateAnimation(dt*math.abs(player.xspeed)/player.speed)
+	playerfunctions.updateAnimation(dt*math.abs(player.xspeed)/player.speed)
 	if player.onground then
 		player.bones.wheelBone.aspeed = player.xspeed/player.bones.wheelBone.length
 	end
@@ -782,15 +782,21 @@ end
 function playerfunctions.draw()
 	love.graphics.setFont(impactfont[20])
 	love.graphics.setColor(0,0,0)
-	love.graphics.print("backarm Angle: " .. player.bones.backarmBone.relAngle,0,0)
-	love.graphics.print("backarm lower: " .. tostring(player.bones.backarmBone.lowerConstraint),0,25)
-	love.graphics.print("backarm upper: " .. tostring(player.bones.backarmBone.upperConstraint),0,50)
-	if false then
+	-- love.graphics.print("backarm Angle: " .. player.bones.backarmBone.relAngle,0,0)
+	-- love.graphics.print("backarm lower: " .. tostring(player.bones.backarmBone.lowerConstraint),0,25)
+	-- love.graphics.print("backarm upper: " .. tostring(player.bones.backarmBone.upperConstraint),0,50)
+
+	y = -100
+	for i,v in pairs(player.bones) do
+		love.graphics.print(tostring(i) .. ' Angle: ' .. v.relAngle .. (v.parent and v.parent.id or ' no parent'), 600, y)
+		y = y + 25
+	end
+	if true then
 		love.graphics.setColor(0,0,0)
 		love.graphics.setLineWidth(14*player.body.xscale)
 		love.graphics.line(player.bones.spineBone.startPoint[1],player.bones.spineBone.startPoint[2],player.bones.spineBone.endPoint[1],player.bones.spineBone.endPoint[2])
 	
-		player.body:draw(true,false)
+		player.body:draw(false,false)
 
 		love.graphics.setColor(0,0,0)
 		love.graphics.setLineWidth(2)
@@ -798,7 +804,7 @@ function playerfunctions.draw()
 		local bp = player.bonePics.forearmPic
 		local angle = bp.angle
 		local l = 18
-		love.graphics.line(bp.x,bp.y, bp.x+math.cos(angle)*l, bp.y+math.sin(angle)*l )
+		--love.graphics.line(bp.x,bp.y, bp.x+math.cos(angle)*l, bp.y+math.sin(angle)*l )
 
 		local angle = bp.bonePicAngle
 		--love.graphics.line(bp.x,bp.y, bp.x+math.cos(angle)*3, bp.y+math.sin(angle)*3 )

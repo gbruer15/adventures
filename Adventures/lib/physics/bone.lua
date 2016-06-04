@@ -167,10 +167,10 @@ function bone:update(dt)
 	
 	if self.parent then
 		self.relAngle = self.relAngle + self.aspeed*dt
-		if self.upperConstraint and self.relAngle > self.upperConstraint then
+		if false and self.upperConstraint and self.relAngle > self.upperConstraint then
 			self.relAngle = self.upperConstraint
 			self.aspeed = 0
-		elseif self.lowerConstraint and self.relAngle < self.lowerConstraint then
+		elseif false and self.lowerConstraint and self.relAngle < self.lowerConstraint then
 			self.relAngle = self.lowerConstraint
 			self.aspeed = 0
 		end
@@ -328,15 +328,15 @@ function bonePicture:draw(drawBone,drawStructure,width,height,scale)
 		--But what I want is for the pivot points to be lined up.
 
 		--move picture in direction of angle of picture to line up pivot points
-		local moveAngle = self.angle + self.bonePicAngle
+		local moveAngle = angle
 		local moveDistance = self.relPivotPoint[1]*2
-		drawy = drawy + moveDistance*math.sin(moveAngle)
 		drawx = drawx + moveDistance*math.cos(moveAngle)
+		drawy = drawy + moveDistance*math.sin(moveAngle)
 	end
 	if not drawBone and not drawStructure then
 		love.graphics.setColor(self.color)
 	else
-		love.graphics.setColor(self.color[1],self.color[2],self.color[3],120)
+		love.graphics.setColor(self.color[1],self.color[2],self.color[3],180)
 	end
 	love.graphics.draw(self.pic,drawx,drawy, angle,width/self.picwidth, height/self.picheight)
 
@@ -513,7 +513,7 @@ function body:scale(xscale,yscale)
 	self.xscale,self.yscale = xscale*self.xscale,yscale*self.yscale
 	self:update(0)
 end
-
+--[[
 function body:flipXY() --this probably just rotates it 180 degrees, not flipping it
 	for i,b in ipairs(self.structuralBones) do
 		b:setStartPoint(self.x-(b.startPoint[1]-self.x),self.y-(b.startPoint[2]-self.y))
@@ -581,12 +581,14 @@ function body:flipY() --A little buggy, but I didn't mean to write it anyway (I 
 	end
 end
 
+--]]
+--[==
 function body:flipX()
 	--self:flipXY()
 	--self:flipY()
 
 
-	--[
+	--[=
 	for i,bp in ipairs(self.bonePics) do
 		--bp.bone:setStartPoint(xscale*(b.bone.startPoint[1]-self.x)/self.xscale+self.x,yscale*(b.bone.startPoint[2]-self.y)/self.yscale+self.y)
 		--bp.bone:setEndPoint(xscale*(b.bone.endPoint[1]-self.x)/self.xscale+self.x,yscale*(b.bone.endPoint[2]-self.y)/self.yscale+self.y)
@@ -622,5 +624,41 @@ function body:flipX()
 			--b:setBodyRelAngle(2*math.pi-b.bodyRelAngle)
 		end
 	end
-	--]]
+	--]=]
+end
+--]==]
+
+function body:flipX()
+	print('Flipping in x direction')
+	for i,b in ipairs(self.structuralBones) do
+		--b.absAngle = b.absAngle % 2*math.pi
+		--reflect about -math.pi/2
+		print('updating ' .. b.id .. ' : ' .. b.absAngle .. ' : ' .. self.angle)
+		local reflect = self.angle - math.pi/2
+		--b.absAngle = -(b.absAngle - reflect) + reflect
+
+		--flip each child rel to this one
+		--flipChildren(b)
+
+		print('updated' .. b.id .. ' : ' .. b.absAngle .. ' : ' .. self.angle)
+		--love.timer.sleep(1)
+		--for j, c in ipairs(b.children) do
+			--c.relAngle = -(c.relAngle + b.absAngle) - b.absAngle
+		--end
+	end
+	print('done')
+	print()
+
+	for i,bp in ipairs(self.bonePics) do
+		--bp.drawwidth = -bp.drawwidth
+	end
+end
+
+function flipChildren(bone)
+	for i, c in ipairs(bone.children) do
+		c.relAngle = -c.relAngle--(c.relAngle - bone.absAngle) + bone.absAngle
+		--c.absAngle = bone.absAngle + c.relAngle
+		print('    updating ' .. c.id)
+		flipChildren(c)
+	end
 end
